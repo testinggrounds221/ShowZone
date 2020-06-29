@@ -19,7 +19,7 @@ import EpisodePage from './Views/EpisodePage'
 
 function App() {
   return (
-    <div className = "relative pb-10 min-h-screen">
+    <div className = "relative pb-10 min-h-screen bg-pl-1">
           
       <Router>
       <Header />  
