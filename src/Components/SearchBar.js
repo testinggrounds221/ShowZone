@@ -23,7 +23,7 @@ function SearchBar(props){
 		<div>
 			<div className="items-center inline">
 				<input id="txtBox" type = "text" className=" font-f1 bg-pl-2 text-black rounded-full" ></input>
-				<div onClick={srch} className="h-4 inline bg-pl-4 text-pl-1 p-1 px-2 mx-2 rounded-full tracking-widest">
+				<div onClick={srch} className="h-4 inline bg-pl-4 text-pl-1 text-bold p-1 px-2 mx-2 rounded-full tracking-widest">
 					Go !
 				</div>
 			</div>

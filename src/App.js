@@ -16,18 +16,18 @@ import Character from "./Views/Character"
 import SearchPage from "./Views/SearchPage"
 import Home from './Views/Home'
 import EpisodePage from './Views/EpisodePage'
+import Animation from './Views/Animation'
 
 function App() {
   return (
     <div className = "relative pb-10 min-h-screen bg-pl-1">
-          
+      
       <Router>
       <Header />  
         <div className = "p-3">
         <Switch>
-          <Route exact path = "/">
-          
-           <Home />
+          <Route exact path = "/">          
+           <Animation />
           </Route>
           <Route path = "/about">
             <About />
