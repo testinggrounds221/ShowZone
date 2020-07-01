@@ -16,7 +16,7 @@ import Character from "./Views/Character"
 import SearchPage from "./Views/SearchPage"
 import Home from './Views/Home'
 import EpisodePage from './Views/EpisodePage'
-import Animation from './Views/Animation'
+// import Animation from './Views/Animation'
 
 function App() {
   return (
@@ -27,7 +27,7 @@ function App() {
         <div className = "p-3">
         <Switch>
           <Route exact path = "/">          
-           <Animation />
+           <Home />
           </Route>
           <Route path = "/about">
             <About />

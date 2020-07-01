@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
+import Button from '../Components/Button'
 function Home(){
 	return(
 		<div className="bg-pl-1">
@@ -8,22 +8,12 @@ function Home(){
 			<p>
 				Hey There. This is the HomePage !!!
 			</p>
-			<Link to="/searchpage/shows">
-			<div className="bg-pl-4 w-32">
-				<p className="text-center text-white p-1 tracking-wide m-2">
-					Search Shows</p>
-			</div>
-			</Link>
-			<Link to="/searchpage/people">
-			<div className="bg-pl-4 w-32">
-				<p className="text-center text-white p-1 m-2">
-					Search People</p>			
-			</div>
-			</Link>
-			<div className="bg-pl-4 w-32">
-				<p className="text-center text-white p-1 tracking-wide">
-					Browse Shows</p>
-			</div>
+			<Button name="Search Shows" to="/searchpage/shows"  />
+			
+			<Button name="Search People" to="/searchpage/people"/>
+			
+			<Button name="Browse Shows"/>
+			
 			
 		</div>
 	)

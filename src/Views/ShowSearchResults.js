@@ -1,9 +1,10 @@
 import React from 'react';
 import Loader from '../Components/Loader';
 import { useAxiosGetArray } from '../Hooks/HttpRequests';
-import ShowCard from '../Components/ShowCard'
+
 import { useParams } from 'react-router-dom';
-import PersonCard from '../Components/PersonCard'
+
+import Card from '../Components/Card'
 
 
 function ShowSearchResults(){
@@ -27,14 +28,16 @@ function ShowSearchResults(){
     if(req.data && by==="shows"){
        content  = req.data.map((show) =>
         <div key = {show.id} className="content-center w-full h-full">				
-            <ShowCard product = {show} />
+            {/* <ShowCard product = {show} /> */}
+            <Card name={show.show.name} link={`/show/${show.show.id}`} img={show.show.image? show.show.image.medium:null } />
+            
         </div>
        )}
     if(req.data && by==="people"){
-    console.log(req.data)
+    
     content  = req.data.map((p) =>
         <div key = {p.person.id} className="content-center w-full h-full">				
-            <PersonCard per = {p} />
+            <Card name={p.person.name} link={`/person/${p.person.id}`} img={p.person.image? p.person.image.medium:null } />
         </div>
     )}
 
