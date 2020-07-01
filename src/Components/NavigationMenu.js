@@ -1,12 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHome,faInfo,faPlay,faTheaterMasks } from "@fortawesome/free-solid-svg-icons";
 
 function NavigationMenu(props){
 	
 	return(
 		<div>
 		<div className="font-bold py-3">
-				AppName
+				ShowZone
 
 			</div>
 			<ul>
@@ -15,6 +17,12 @@ function NavigationMenu(props){
 					className = "text-blue-500 border-t border-b py-3 block"
 					onClick = {props.closeMenu}
 					>
+					<div className="inline mr-1">
+						<FontAwesomeIcon
+						icon={faHome}
+						
+						/>
+					</div>
 					Home
 					</Link>
 				</li>
@@ -23,6 +31,12 @@ function NavigationMenu(props){
 					className = "text-blue-500 border-b py-3 block"
 					onClick = {props.closeMenu}
 					>
+					<div className="inline p-2">
+						<FontAwesomeIcon
+						icon={faInfo}
+						
+						/>
+					</div>
 					About
 					</Link>
 				</li>
@@ -31,7 +45,13 @@ function NavigationMenu(props){
 					className = "text-blue-500 border-b py-3 block"
 					onClick = {props.closeMenu}
 					>
-					Show
+					<div className="inline px-1">
+						<FontAwesomeIcon
+						icon={faPlay}
+						
+						/>
+					</div>
+					Browse Shows
 					</Link>
 				</li>
 				<li>
@@ -39,7 +59,13 @@ function NavigationMenu(props){
 					className = "text-blue-500 border-b py-3 block"
 					onClick = {props.closeMenu}
 					>
-					Person
+					<div className="inline mr-1">
+					<FontAwesomeIcon
+					icon={faTheaterMasks}
+					
+					/>
+					</div>
+					Browse People
 					</Link>
 				</li>
 			</ul>
