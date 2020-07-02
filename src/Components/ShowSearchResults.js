@@ -1,13 +1,15 @@
 import React from 'react';
-import Loader from '../Components/Loader';
+import Loader from './Loader';
 import { useAxiosGetArray } from '../Hooks/HttpRequests';
 import { useParams } from 'react-router-dom';
-import Card from '../Components/Card'
+import Card from './Card'
 
 
-function ShowSearchResults(){
+
+function ShowSearchResults(props){
 //http://api.tvmaze.com/search/shows?q=girls
-	let { qr,by } = useParams();
+    let by = props.by
+    let qr = props.val
 	const url = `http://api.tvmaze.com/search/${by}?q=${qr}`;
     let req = useAxiosGetArray(url)
     let content = null;
@@ -42,7 +44,7 @@ function ShowSearchResults(){
 	return(
 		<div>
             
-			<div className = "font-bold p-3 object-none object-center w-full h-full"> Search Results </div>
+    <div className = "font-bold p-3 object-none object-center w-full h-full"> Search Results For {qr}</div>
 			{content}
 		</div>
 	)

@@ -8,11 +8,14 @@ function Home(){
 			<p>
 				Hey There. This is the HomePage !!!
 			</p>
-			<Button name="Search Shows" to="/searchpage/shows"  />
+			<div className="flex items-center justify-evenly h-screen">
+				<Button name="Search Shows" to="/searchpage/shows"/>
+				
+				<Button name="Search People" to="/searchpage/people"/>
+				
+				<Button name="Browse Shows" to="/srchpg" />
+			</div>
 			
-			<Button name="Search People" to="/searchpage/people"/>
-			
-			<Button name="Browse Shows"/>
 			
 			
 		</div>
