@@ -3,7 +3,9 @@ import { useParams }from 'react-router'
 import { useAxiosGetJSON,useAxiosGetArray } from '../Hooks/HttpRequests';
 import Loader from '../Components/Loader'
 import ImageLoader from '../Components/ImageLoader';
-import ShowCard from '../Components/ShowCard';
+
+import Card from '../Components/Card';
+
 function Person(){
 	let {id} = useParams()
 	//const url = `http://api.tvmaze.com/people/1`
@@ -32,9 +34,10 @@ function Person(){
 
 		crdCards = crd.map((shw) => 
 			<div>
-			<ShowCard product={shw._embedded} />
-			</div>
 		
+			<Card name={shw._embedded.show.name} link={`/show/${shw._embedded.show.id}`} img={shw._embedded.show.image? shw._embedded.show.image.medium:null } />
+			</div>
+	
 		)
 
 
