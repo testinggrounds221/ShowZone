@@ -87,7 +87,7 @@ function BrowseCards(props) {
   ];
   let content = ids.map((id) => (
     <div className="content-center w-full items-center justify-center">
-      <GalleryCard id={id} />
+      <GalleryCard id={id} type="banner"/>
     </div>
   ));
   return <div>{content}</div>;

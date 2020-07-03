@@ -21,7 +21,7 @@ function GalleryCard(props){
     }
 	if(req.data){
 		let onBann = req.data.filter((img) => {
-			return(img.type== "banner")
+			return(img.type== props.type)
 			
 		})		
 		
