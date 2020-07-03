@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom';
 import Card from './Card'
 
 
+
 function ShowSearchResults(props){
 //http://api.tvmaze.com/search/shows?q=girls
     let by = props.by
@@ -43,7 +44,7 @@ function ShowSearchResults(props){
 	return(
 		<div>
             
-			<div className = "font-bold p-3 object-none object-center w-full h-full"> Search Results </div>
+    <div className = "font-bold p-3 object-none object-center w-full h-full"> Search Results For {qr}</div>
 			{content}
 		</div>
 	)

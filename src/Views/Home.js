@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Button from '../Components/Button'
+import LoginControl from './SrchPg'
 function Home(){
 	return(
 		<div className="bg-pl-1">
@@ -8,11 +9,8 @@ function Home(){
 			<p>
 				Hey There. This is the HomePage !!!
 			</p>
-			<Button name="Search Shows" to="/searchpage/shows"  />
+			<LoginControl />
 			
-			<Button name="Search People" to="/searchpage/people"/>
-			
-			<Button name="Browse Shows"/>
 			
 			
 		</div>

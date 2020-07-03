@@ -16,11 +16,11 @@ import Character from "./Views/Character"
 import SearchPage from "./Views/SearchPage"
 import Home from './Views/Home'
 import EpisodePage from './Views/EpisodePage'
-// import Animation from './Views/Animation'
+import LoginControl from './Views/SrchPg'
 
 function App() {
   return (
-    <div className = "relative pb-10 min-h-screen bg-pl-1">
+    <div className = "relative pb-10 min-h-screen bg-pl-1 ">
       
       <Router>
       <Header />  
@@ -52,6 +52,9 @@ function App() {
           </Route>
           <Route path = "/episode/:id">
             <EpisodePage />
+          </Route>
+          <Route path = "/srchpg">
+            <LoginControl />
           </Route>
         </Switch>
         </div>
