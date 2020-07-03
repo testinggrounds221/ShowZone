@@ -2,15 +2,14 @@ import React from "react";
 
 import ShowSearchResults from "../Components/ShowSearchResults";
 import { useParams } from "react-router-dom";
-import GalleryCard from "../Components/GalleryCard"
+import GalleryCard from "../Components/GalleryCard";
 class LoginControl extends React.Component {
   constructor(props) {
     super(props);
 
     this.handleLoginClick = this.handleLoginClick.bind(this);
     this.handleLogoutClick = this.handleLogoutClick.bind(this);
-	this.state = { isLoggedIn: false };
-	
+    this.state = { isLoggedIn: false };
   }
 
   handleLoginClick() {
@@ -43,34 +42,55 @@ class LoginControl extends React.Component {
       </div>
     );
     if (isLoggedIn) {
-      content = <LogoutButton onClick={this.handleLogoutClick}/>
-    } 
+      content = <LogoutButton onClick={this.handleLogoutClick} />;
+    }
     return (
-      <div>	  
-		{stay}        
+      <div>
+        {stay}
         {content}
-		<Greeting isLoggedIn={isLoggedIn} />
+        <Greeting isLoggedIn={isLoggedIn} />
       </div>
     );
   }
 }
 
-function Results(props) { 
-// Show Sreach results
-let content = null
-let val = document.getElementById("txtBox").value;
-      content = (
-        <div>
-          
-          <ShowSearchResults val={val} by="shows" />
-          
-        </div>
-      );
+function Results(props) {
+  // Show Sreach results
+  let content = null;
+  let val = document.getElementById("txtBox").value;
+  content = (
+    <div>
+      <ShowSearchResults val={val} by="shows" />
+    </div>
+  );
   return <div>{content}</div>;
 }
 
 function BrowseCards(props) {
-  return <GalleryCard />;
+  let ids = [
+    49,
+    42167,
+    27436,
+    7194,
+    431,
+    4,
+    1851,
+    1850,
+    26020,
+    1871,
+    143,
+    5079,
+    12888,
+    82,
+    20683,
+    124,
+  ];
+  let content = ids.map((id) => (
+    <div className="content-center w-full items-center justify-center">
+      <GalleryCard id={id} />
+    </div>
+  ));
+  return <div>{content}</div>;
 }
 
 function Greeting(props) {
