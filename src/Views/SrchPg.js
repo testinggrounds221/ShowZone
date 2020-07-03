@@ -70,7 +70,12 @@ let val = document.getElementById("txtBox").value;
 }
 
 function BrowseCards(props) {
-  return <GalleryCard />;
+	let ids = [49]
+	let content  = ids.map((id) =>
+        <div className="content-center w-full h-full">				
+            <GalleryCard id={id} />
+        </div>)
+	return <div>{content}</div>
 }
 
 function Greeting(props) {

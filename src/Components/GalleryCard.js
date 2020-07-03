@@ -1,15 +1,48 @@
 import React from 'react'
 import { useAxiosGetArray } from '../Hooks/HttpRequests';
+import Loader from './Loader'
+import {Link} from 'react-router-dom';
 // http://api.tvmaze.com/shows/1/images
 function GalleryCard(props){
-	let content = null
-	const url = `http://api.tvmaze.com/shows/17861/images`;
+	
+	const url = `http://api.tvmaze.com/shows/${props.id}/images`
 	let req = useAxiosGetArray(url)
-	console.log(req.data)
+    let content = null;
+    if(req.loading){
+        content = 
+            <Loader></Loader>
+    }
 
+    if(req.error){
+        content = 
+            <div>
+                Error loading Search Results.
+            </div>
+    }
+	if(req.data){
+		let onBann = req.data.filter((img) => {
+			return(img.type== "banner")
+			
+		})		
+		
+		
+		content  = onBann.map((img) =>
+		<Link to={`/show/${props.id}`}>
+        <div key = {img.id} className="my-2">				
+         <img src = {img.resolutions.original.url} alt="Hey"></img>
+            
+        </div>
+		</Link>
+       )
+		
+		
+		
+		
+	}
+	
 	return(
-		<div>
-		{content}
+		<div className="w-full">
+			{content}
 		</div>
 		
 		)
