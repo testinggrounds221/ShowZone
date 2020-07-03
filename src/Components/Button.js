@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import React from 'react';
-import ShowSearchResults from './ShowSearchResults' 
+
 
 function Button(props){
 	return(

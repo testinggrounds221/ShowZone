@@ -21,14 +21,14 @@ function GalleryCard(props){
     }
 	if(req.data){
 		let onBann = req.data.filter((img) => {
-			return(img.type== props.type)
+			return(img.type === props.type)
 			
 		})		
 		
 		
 		content  = onBann.map((img) =>
-		<Link to={`/show/${props.id}`}>
-        <div key = {img.id} className="my-2">				
+		<Link key = {img.id} to={`/show/${props.id}`}>
+        <div  className="my-2">				
          <img src = {img.resolutions.original.url} alt="Hey"></img>
             
         </div>

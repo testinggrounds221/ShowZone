@@ -1,9 +1,13 @@
 import React from "react";
+import Accordion from "@material-ui/core/Accordion";
+import AccordionDetails from "@material-ui/core/AccordionDetails";
+import AccordionSummary from "@material-ui/core/AccordionSummary";
 import { useParams } from "react-router";
+
 import Loader from "../Components/Loader";
 import { useAxiosGetJSON } from "../Hooks/HttpRequests";
 import Card from "../Components/Card";
-import PersonCard from "../Components/PersonCard";
+
 import ImageLoader from "../Components/ImageLoader";
 import SeasonCard from "../Components/SeasonCard";
 import GalleryCard from "../Components/GalleryCard";
@@ -35,23 +39,46 @@ function Show() {
       //console.log("No Image In Show");
     }
 
-    castCards = show._embedded.cast.map((elem) => (
-      <div key={elem.person.id} className="flex p-3 rounded-full">
-        <Card
-          name={elem.person.name}
-          link={`/person/${elem.person.id}`}
-          img={elem.person.image ? elem.person.image.medium : null}
-        />
-      </div>
-    ));
-    ssnCards = <div>SeasonCards here</div>;
+    castCards = (
+      <Accordion>
+        <AccordionSummary>CAST</AccordionSummary>
+        {show._embedded.cast.map((elem) => (
+          <AccordionDetails>
+            <div key={elem.person.id} className="flex p-3">
+              <Card
+                name={elem.person.name}
+                link={`/person/${elem.person.id}`}
+                img={elem.person.image ? elem.person.image.medium : null}
+              />
+            </div>
+          </AccordionDetails>
+        ))}
+      </Accordion>
+    );
 
+    ssnCards = 
+    <Accordion>
+      <AccordionSummary>SEASONS</AccordionSummary>
+    {show._embedded.seasons.map((el) => (
+      <AccordionDetails>
+      <div key={el.id} className="flex">
+        <SeasonCard sn={el} />
+      </div>
+      </AccordionDetails>
+    ))}
+    </Accordion>
     let types = ["poster", "background", "banner", "typography"];
     let galCards = types.map((type) => (
-      <div>
-		  {type}
-        <GalleryCard type={type} id={id} />
-      </div>
+      <Accordion>
+        <AccordionSummary aria-controls="panel1a-content">
+          {type}
+        </AccordionSummary>
+        <AccordionDetails>
+          <div>
+            <GalleryCard type={type} id={id} />
+          </div>
+        </AccordionDetails>
+      </Accordion>
     ));
 
     content = (
@@ -78,7 +105,7 @@ function Show() {
             {castCards}
           </div>
           <div>Seasons: {ssnCards}</div>
-          <div>Gallery:{galCards}</div>
+          {galCards}
         </div>
       </div>
     );

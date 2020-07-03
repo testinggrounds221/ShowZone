@@ -1,7 +1,7 @@
 import React from "react";
 
 import ShowSearchResults from "../Components/ShowSearchResults";
-import { useParams } from "react-router-dom";
+
 import GalleryCard from "../Components/GalleryCard";
 class LoginControl extends React.Component {
   constructor(props) {
@@ -24,7 +24,7 @@ class LoginControl extends React.Component {
     const isLoggedIn = this.state.isLoggedIn;
 
     let content = null;
-    let button;
+    
     let stay = (
       <div className="bg-pl-4 text-white">
         <div>
@@ -86,8 +86,8 @@ function BrowseCards(props) {
     124,
   ];
   let content = ids.map((id) => (
-    <div className="content-center w-full items-center justify-center">
-      <GalleryCard id={id} type="banner"/>
+    <div key={id} className="content-center w-full items-center justify-center">
+      <GalleryCard  id={id} type="banner"/>
     </div>
   ));
   return <div>{content}</div>;
