@@ -1,8 +1,8 @@
 import React from "react";
-import SearchBar from "../Components/SearchBar";
+
 import ShowSearchResults from "../Components/ShowSearchResults";
 import { useParams } from "react-router-dom";
-
+import GalleryCard from "../Components/GalleryCard"
 class LoginControl extends React.Component {
   constructor(props) {
     super(props);
@@ -43,47 +43,42 @@ class LoginControl extends React.Component {
       </div>
     );
     if (isLoggedIn) {
-      let val = document.getElementById("txtBox").value;
-      console.log(val);
-      content = (
-        <div>
-          <div className="bg-pl-3 w-full h-full">Search Results Go here</div>
-          <ShowSearchResults val={val} by="shows" />
-          <LogoutButton onClick={this.handleLogoutClick} />
-        </div>
-      );
-    } else {
-      content = (
-        <div>
-          <LoginButton onClick={this.handleLoginClick} />
-        </div>
-      );
-    }
-
+      content = <LogoutButton onClick={this.handleLogoutClick}/>
+    } 
     return (
-      <div>
-        {stay}
-        <Greeting isLoggedIn={isLoggedIn} />
+      <div>	  
+		{stay}        
         {content}
+		<Greeting isLoggedIn={isLoggedIn} />
       </div>
     );
   }
 }
 
-function UserGreeting(props) {
-  return <h1>Welcome back!</h1>;
+function Results(props) { 
+// Show Sreach results
+let content = null
+let val = document.getElementById("txtBox").value;
+      content = (
+        <div>
+          
+          <ShowSearchResults val={val} by="shows" />
+          
+        </div>
+      );
+  return <div>{content}</div>;
 }
 
-function GuestGreeting(props) {
-  return <h1>Please sign up.</h1>;
+function BrowseCards(props) {
+  return <GalleryCard />;
 }
 
 function Greeting(props) {
   const isLoggedIn = props.isLoggedIn;
   if (isLoggedIn) {
-    return <UserGreeting />;
+    return <Results />;
   }
-  return <GuestGreeting />;
+  return <BrowseCards />;
 }
 
 function LoginButton(props) {
@@ -91,7 +86,7 @@ function LoginButton(props) {
 }
 
 function LogoutButton(props) {
-  return <button onClick={props.onClick}>Logout</button>;
+  return <button onClick={props.onClick}>Reset</button>;
 }
 
 export default LoginControl;

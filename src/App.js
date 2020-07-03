@@ -53,7 +53,7 @@ function App() {
           <Route path = "/episode/:id">
             <EpisodePage />
           </Route>
-          <Route path = "/srchpg/:by">
+          <Route path = "/srchpg">
             <LoginControl />
           </Route>
         </Switch>
