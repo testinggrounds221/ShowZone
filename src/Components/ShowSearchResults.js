@@ -44,7 +44,7 @@ function ShowSearchResults(props){
 	return(
 		<div>
             
-    <div className = "font-bold p-3 object-none object-center w-full h-full"> Search Results For {qr}</div>
+    <div></div>
 			{content}
 		</div>
 	)

@@ -26,16 +26,18 @@ class LoginControl extends React.Component {
     let content = null;
     
     let stay = (
-      <div className="bg-pl-4 text-white">
+      <div className="text-white">
         <div>
-          <div className="items-center inline justify-evenly">
+          <div className="bg-pl-2 -mx-3 py-10">
             <input
               id="txtBox"
               type="text"
-              className=" font-f1 bg-pl-2 text-black rounded-md w-full"
+              className="outline-none text-center text-3xl focus:underline font-serif bg-pl-2 rounded-md w-full"
+              placeholder="Search"
+              autoComplete="off"
             ></input>
-            <div className="w-auto flex items-center justify-evenly">
-              <LoginButton onClick={this.handleLoginClick} />
+            <div onClick={this.handleLoginClick} className="w-1/4 h-10 bg-pl-4 mt-8 flex justify-evenly mx-auto rounded-md">
+              <LoginButton  />
             </div>
           </div>
         </div>
@@ -60,7 +62,10 @@ function Results(props) {
   let val = document.getElementById("txtBox").value;
   content = (
     <div>
+      <div className="text-center font-medium bg-pl-2 text-t-1 text-2xl rounded-full">Shows Matching "{val}"</div>
       <ShowSearchResults val={val} by="shows" />
+      <div className="text-center">People</div>
+      <ShowSearchResults val={val} by="people" />
     </div>
   );
   return <div>{content}</div>;
@@ -85,9 +90,10 @@ function BrowseCards(props) {
     20683,
     124,
   ];
+  ids=shuffle(ids)
   let content = ids.map((id) => (
     <div key={id} className="content-center w-full items-center justify-center">
-      <GalleryCard  id={id} type="banner"/>
+      <GalleryCard  id={id} type="banner" for="gal"/>
     </div>
   ));
   return <div>{content}</div>;
@@ -102,7 +108,7 @@ function Greeting(props) {
 }
 
 function LoginButton(props) {
-  return <button onClick={props.onClick}>Login</button>;
+  return <button onClick={props.onClick}>GO !!!</button>;
 }
 
 function LogoutButton(props) {
@@ -110,3 +116,10 @@ function LogoutButton(props) {
 }
 
 export default LoginControl;
+function shuffle(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    let j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array
+}
