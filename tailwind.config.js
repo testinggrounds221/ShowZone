@@ -19,11 +19,8 @@ module.exports = {
           3:'#a0ffe6',
           4:'#f7f7f7',
         }
-      },
-      fontFamily:{
-        'f1':['Oswald'],
-        'head':['Pangolin']
       }
+      
     },
   },
   variants: {},

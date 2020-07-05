@@ -98,7 +98,12 @@ function Show() {
           <p className="text-pl-1 font-semibold text-4xl text-center">
             {show.name}
           </p>
-          <p className="">Genres : {show.genres}</p>
+          <p><span className="tHead">Genres :  </span><span className="tCon">{show.genres}</span></p>
+          
+          <p className=""> Ordinary text</p>
+          
+          <p > Ordinary text</p>
+
         </div>
       </div>
     );

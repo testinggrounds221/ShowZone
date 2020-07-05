@@ -6408,14 +6408,6 @@ video {
   font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
-.font-f1 {
-  font-family: Oswald;
-}
-
-.font-head {
-  font-family: Pangolin;
-}
-
 .font-hairline {
   font-weight: 100;
 }
@@ -14960,6 +14952,16 @@ video {
   animation: spin 2s linear infinite;
 }
 
+.tCon {
+  color: #f3f3f3 ;
+  font-family: 'Mukta', sans-serif;
+}
+
+.tHead {
+  color: #f3f3f3;
+  font-family: 'Poppins', sans-serif;
+}
+
 /* Safari */
 
 @keyframes spin {
@@ -20771,14 +20773,6 @@ video {
 
   .sm\:font-mono {
     font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-  }
-
-  .sm\:font-f1 {
-    font-family: Oswald;
-  }
-
-  .sm\:font-head {
-    font-family: Pangolin;
   }
 
   .sm\:font-hairline {
@@ -35120,14 +35114,6 @@ video {
     font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   }
 
-  .md\:font-f1 {
-    font-family: Oswald;
-  }
-
-  .md\:font-head {
-    font-family: Pangolin;
-  }
-
   .md\:font-hairline {
     font-weight: 100;
   }
@@ -49467,14 +49453,6 @@ video {
     font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   }
 
-  .lg\:font-f1 {
-    font-family: Oswald;
-  }
-
-  .lg\:font-head {
-    font-family: Pangolin;
-  }
-
   .lg\:font-hairline {
     font-weight: 100;
   }
@@ -63812,14 +63790,6 @@ video {
 
   .xl\:font-mono {
     font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-  }
-
-  .xl\:font-f1 {
-    font-family: Oswald;
-  }
-
-  .xl\:font-head {
-    font-family: Pangolin;
   }
 
   .xl\:font-hairline {
