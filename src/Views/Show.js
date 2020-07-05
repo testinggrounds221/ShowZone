@@ -56,17 +56,18 @@ function Show() {
       </Accordion>
     );
 
-    ssnCards = 
-    <Accordion>
-      <AccordionSummary>SEASONS</AccordionSummary>
-    {show._embedded.seasons.map((el) => (
-      <AccordionDetails>
-      <div key={el.id} className="flex">
-        <SeasonCard sn={el} />
-      </div>
-      </AccordionDetails>
-    ))}
-    </Accordion>
+    ssnCards = (
+      <Accordion>
+        <AccordionSummary>SEASONS</AccordionSummary>
+        {show._embedded.seasons.map((el) => (
+          <AccordionDetails>
+            <div key={el.id} className="flex">
+              <SeasonCard sn={el} />
+            </div>
+          </AccordionDetails>
+        ))}
+      </Accordion>
+    );
     let types = ["poster", "background", "banner", "typography"];
     let galCards = types.map((type) => (
       <Accordion>
@@ -80,32 +81,24 @@ function Show() {
         </AccordionDetails>
       </Accordion>
     ));
-
+    let bg = <GalleryCard id={id} type="banner" for="gal" />;
+    if (!bg) {
+      bg = (
+        <ImageLoader
+          className="px-8 py-5 rounded-lg object-center w-full h-full"
+          loc={lc}
+          name={show.name}
+        />
+      );
+    }
     content = (
-      <div className="bg-local h-full object-cover object-center">
-        <div className=" max-w-md mx-auto">
-          <h1 className="font-bold text-center">{show.name}</h1>
-
-          <ImageLoader
-            className="px-8 py-5 rounded-lg object-center w-full h-full"
-            loc={lc}
-            name={show.name}
-          />
-          <div>
-            <p>ID : {show.id}</p>
-            <p className="text-center">{stripHtml(show.summary)} </p>
-            <div className="px-8 py-5">
-              <p>Name : {show.name}</p>
-              <p>Rating : {show.rating.average} </p>
-              <p>Since :{show.premiered} </p>
-            </div>
-            <div className="bg-pl-2 font-head font-bold capitalize tracking-wide text-center p-3">
-              Cast
-            </div>
-            {castCards}
-          </div>
-          <div>Seasons: {ssnCards}</div>
-          {galCards}
+      <div className="bg-local h-full object-cover object-center bg-black p-0">
+        <div className="w-full m-0">{bg}</div>
+        <div className="bg-black-t-50 z-10 h-auto -my-20 absolute w-screen">
+          <p className="text-pl-1 font-semibold text-4xl text-center">
+            {show.name}
+          </p>
+          <p className="">Genres : {show.genres}</p>
         </div>
       </div>
     );
