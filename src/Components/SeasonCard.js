@@ -5,11 +5,11 @@ function SeasonCard(props){
 	let content = null;
 	let ses = props.sn;
 	content =
-		<div>
+		
 			<Link to={`/season/${ses.id}`}>
 				{ses.number}
 			</Link>
-		</div>
+		
 	
 	
 	return(

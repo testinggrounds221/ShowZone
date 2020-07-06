@@ -4,7 +4,7 @@
 2. Show page design 
 3. Person page design 
 4. Srch Page design
-5. Season card Design
+5. :x: Season card Design
 6. Change Try in imgage
 7. Error Handling !!!
 

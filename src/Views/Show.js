@@ -8,7 +8,7 @@ import Loader from "../Components/Loader";
 import { useAxiosGetJSON } from "../Hooks/HttpRequests";
 import Card from "../Components/Card";
 
-import ImageLoader from "../Components/ImageLoader";
+import Rating from "../Components/Rating";
 import SeasonCard from "../Components/SeasonCard";
 import GalleryCard from "../Components/GalleryCard";
 //http://api.tvmaze.com/shows/10
@@ -35,9 +35,9 @@ function Show() {
     try {
       lc = show.image.medium;
     } catch {
-      lc = "noImg";      
+      lc = "noImg";
     }
-    let bg = <GalleryCard id={id} for  = "shwBack" loc={lc}/>
+    let bg = <GalleryCard id={id} for="shwBack" loc={lc} />;
 
     castCards = (
       <Accordion>
@@ -61,7 +61,7 @@ function Show() {
         <AccordionSummary>SEASONS</AccordionSummary>
         {show._embedded.seasons.map((el) => (
           <AccordionDetails key={el.id}>
-            <div key={el.id} className="flex">
+            <div key={el.id} className="flex w-full">
               <SeasonCard sn={el} />
             </div>
           </AccordionDetails>
@@ -76,13 +76,22 @@ function Show() {
         </AccordionSummary>
         <AccordionDetails>
           <div>
-            <GalleryCard type={type} id={id} for="shwGal"/>
+            <GalleryCard type={type} id={id} for="shwGal" />
           </div>
         </AccordionDetails>
       </Accordion>
     ));
-    
-      
+    let genCards = show.genres.map((gen) => (
+      <span className="tCon bg-gray-900 m-1 px-2 rounded-full tracking-wide">
+        {gen}
+      </span>
+    ));
+    let iter = (arr) =>
+      arr.map((el) => (
+        <span className="tCon bg-gray-900 m-1 px-3 rounded-full tracking-wide">
+          {el}
+        </span>
+      ));
     content = (
       <div className="mx-auto h-full object-cover object-center bg-transparent p-0 content-center w-full">
         <div className="w-auto">{bg}</div>
@@ -93,12 +102,20 @@ function Show() {
             {show.name}
             {show.id}
           </p>
-          <p><span className="tHead">Genres :  </span><span className="tCon">{show.genres}</span></p>
-          
-          <p className=""> Ordinary text</p>
-          
-          <p > Ordinary text</p>
+          <div className="text-center">
+            <Rating val={5.7222} />
+          </div>
+
+          <p className="text-center">
+            <span className="tHead">Genres : </span>
+            {iter(show.genres)}
+          </p>
+          <p className="text-center">
+            <span className="tHead">Type: </span>
+            <span className="tCon">{show.type}</span>
+          </p>
           {galCards}
+          {ssnCards}
         </div>
       </div>
     );
