@@ -16,17 +16,19 @@ import Character from "./Views/Character"
 import SearchPage from "./Views/SearchPage"
 import Home from './Views/Home'
 import EpisodePage from './Views/EpisodePage'
-import LoginControl from './Views/SrchPg'
+
+
 
 function App() {
   return (
-    <div className = "relative pb-10 min-h-screen bg-pl-1 ">
-      
+    <div className = "relative pb-10 min-h-screen">
+          
       <Router>
       <Header />  
         <div className = "p-3">
         <Switch>
-          <Route exact path = "/">          
+          <Route exact path = "/">
+          
            <Home />
           </Route>
           <Route path = "/about">
@@ -52,9 +54,6 @@ function App() {
           </Route>
           <Route path = "/episode/:id">
             <EpisodePage />
-          </Route>
-          <Route path = "/srchpg">
-            <LoginControl />
           </Route>
         </Switch>
         </div>

@@ -2,11 +2,10 @@ import React from 'react';
 import { useParams } from 'react-router';
 import Loader from '../Components/Loader';
 import { useAxiosGetJSON } from '../Hooks/HttpRequests';
-import Card from '../Components/Card'
 import PersonCard from '../Components/PersonCard'
 import ImageLoader from '../Components/ImageLoader'
 import SeasonCard from '../Components/SeasonCard';
-//http://api.tvmaze.com/shows/10
+//http://api.tvmaze.com/shows/1
 //http://api.tvmaze.com/shows/${id}?embed[]=seasons&embed[]=cast
 function Show(){
 
@@ -40,18 +39,23 @@ function Show(){
 		//console.log("No Image In Show");
 	}
 		
-	castCards = show._embedded.cast.map((elem) =>
-	 	<div key = {elem.person.id} className="flex p-3 rounded-full">
-			<Card name={elem.person.name} link={`/person/${elem.person.id}`} img={elem.person.image? elem.person.image.medium:null } />
-		 </div>)
+		castCards = show._embedded.cast.map((elem) =>
+		 	<div key = {elem.person.id} className = "flex">
+				 <PersonCard per = {elem}/> <p className="ml-1"> as {elem.character.name}</p>  
+			 </div>)
+
+		ssnCards = show._embedded.seasons.map((el) =>
+		<div key = {el.id} className = "flex">
+			<SeasonCard sn = {el}/>   
+		</div>)
 
 		
-	content = 
-		<div className="bg-local h-full object-cover object-center" >
-			<div className=" max-w-md mx-auto" >
-				<h1 className = "font-bold text-center">
-					{show.name}
-				</h1>
+		content = 
+				<div className="bg-local h-full object-cover object-center" >
+					<div className=" max-w-md mx-auto max-w-xl " >
+					<h1 className = "font-bold text-center">
+						{show.name}
+					</h1>
 
 	<ImageLoader className="px-8 py-5 rounded-lg object-center w-full h-full" loc = {lc} name={show.name} />
 					<div >
@@ -61,11 +65,8 @@ function Show(){
 							<p>Name : {show.name}</p>							
 							<p>Rating : {show.rating.average}	</p>
 							<p>Since :{show.premiered} </p>
-						</div>
-						<div className="bg-pl-2 font-head font-bold capitalize tracking-wide text-center p-3">
-							Cast	
 						</div> 
-						    {castCards}
+						Cast:     {castCards}            
 					</div>
 						<div> 
 							Seasons:     {ssnCards}            

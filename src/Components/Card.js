@@ -20,17 +20,14 @@ function Card(props){
 	  }
 	return(
 		// bg-pl-2
-		<div className = "shadow ">
-        	<div >
+		<div className="shadow flex content-center my-4">
+        	<div className="mx-auto">
 			<Link to={props.link}>
 				<div style={imgStyle}>
 					<div style={txtStyle} className="text-center font-medium text-t-4 items-center">
 						<p>{props.name}</p>
-						
 					</div>
-					{/* <ImageLoader loc={actPer.image.medium} /> */}
 				</div>
-				
 			</Link>
 			</div>
 		</div>

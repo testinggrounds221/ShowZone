@@ -3,7 +3,7 @@ import SearchBar from '../Components/SearchBar'
 import { useParams } from 'react-router-dom';
 function SearchPage(){
 	let { by } = useParams()
-	// console.log(by);
+	console.log(by);
 	
 	let content = null
 	if(by === "shows"){
