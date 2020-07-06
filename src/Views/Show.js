@@ -35,15 +35,15 @@ function Show() {
     try {
       lc = show.image.medium;
     } catch {
-      lc = "noImg";
-      //console.log("No Image In Show");
+      lc = "noImg";      
     }
+    let bg = <GalleryCard id={id} for  = "shwBack" loc={lc}/>
 
     castCards = (
       <Accordion>
         <AccordionSummary>CAST</AccordionSummary>
         {show._embedded.cast.map((elem) => (
-          <AccordionDetails>
+          <AccordionDetails key={elem.person.id}>
             <div key={elem.person.id} className="flex p-3">
               <Card
                 name={elem.person.name}
@@ -60,7 +60,7 @@ function Show() {
       <Accordion>
         <AccordionSummary>SEASONS</AccordionSummary>
         {show._embedded.seasons.map((el) => (
-          <AccordionDetails>
+          <AccordionDetails key={el.id}>
             <div key={el.id} className="flex">
               <SeasonCard sn={el} />
             </div>
@@ -76,34 +76,29 @@ function Show() {
         </AccordionSummary>
         <AccordionDetails>
           <div>
-            <GalleryCard type={type} id={id} />
+            <GalleryCard type={type} id={id} for="shwGal"/>
           </div>
         </AccordionDetails>
       </Accordion>
     ));
-    let bg = <GalleryCard id={id} type="banner" for="gal" />;
-    if (!bg) {
-      bg = (
-        <ImageLoader
-          className="px-8 py-5 rounded-lg object-center w-full h-full"
-          loc={lc}
-          name={show.name}
-        />
-      );
-    }
+    
+      
     content = (
-      <div className="bg-local h-full object-cover object-center bg-black p-0">
-        <div className="w-full m-0">{bg}</div>
+      <div className="mx-auto h-full object-cover object-center bg-transparent p-0 content-center w-full">
+        <div className="w-auto">{bg}</div>
+        {/* <div className="bg-local h-full object-cover object-center bg-transparent p-0">
+        <div className="w-full m-0">{bg}</div> */}
         <div className="bg-black-t-50 z-10 h-auto -my-20 absolute w-screen">
           <p className="text-pl-1 font-semibold text-4xl text-center">
             {show.name}
+            {show.id}
           </p>
           <p><span className="tHead">Genres :  </span><span className="tCon">{show.genres}</span></p>
           
           <p className=""> Ordinary text</p>
           
           <p > Ordinary text</p>
-
+          {galCards}
         </div>
       </div>
     );
