@@ -24,7 +24,7 @@ function App() {
       
       <Router>
       <Header />  
-        <div className = "p-3">
+        <div>
         <Switch>
           <Route exact path = "/">          
            <Home />
@@ -57,11 +57,12 @@ function App() {
             <LoginControl />
           </Route>
         </Switch>
+
         </div>
         
       </Router>
 
-      
+            
       
     </div>
   );

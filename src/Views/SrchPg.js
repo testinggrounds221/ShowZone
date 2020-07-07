@@ -28,15 +28,15 @@ class LoginControl extends React.Component {
     let stay = (
       <div className="text-white">
         <div>
-          <div className="bg-pl-2 -mx-3 py-10">
+          <div className="bg-pl-1 py-10">
             <input
               id="txtBox"
               type="text"
-              className="outline-none text-center text-3xl focus:underline font-serif bg-pl-2 rounded-md w-full"
+              className="outline-none text-center font-serif bg-pl-1 rounded-md w-full tCon "
               placeholder="Search"
               autoComplete="off"
             ></input>
-            <div onClick={this.handleLoginClick} className="w-1/4 h-10 bg-pl-4 mt-8 flex justify-evenly mx-auto rounded-md">
+            <div onClick={this.handleLoginClick} className="w-1/4 h-10 bg-pl-4 mt-8 flex justify-evenly mx-auto rounded-md outline-none">
               <LoginButton  />
             </div>
           </div>
@@ -62,7 +62,7 @@ function Results(props) {
   let val = document.getElementById("txtBox").value;
   content = (
     <div>
-      <div className="text-center font-medium bg-pl-2 text-t-1 text-2xl rounded-full">Shows Matching "{val}"</div>
+      <div className="text-center font-medium text-t-1 text-2xl rounded-full">Shows Matching "{val}"</div>
       <ShowSearchResults val={val} by="shows" />
       <div className="text-center">People</div>
       <ShowSearchResults val={val} by="people" />
@@ -89,7 +89,9 @@ function BrowseCards(props) {
     82,
     20683,
     124,
+    17861
   ];
+  
   ids=shuffle(ids)
   let content = ids.map((id) => (
     <div key={id} className="content-center w-full items-center justify-center">
@@ -108,7 +110,11 @@ function Greeting(props) {
 }
 
 function LoginButton(props) {
-  return <button onClick={props.onClick}>GO !!!</button>;
+  return (
+    <button onClick={props.onClick} className="outline-none">
+      GO
+    </button>
+  );
 }
 
 function LogoutButton(props) {

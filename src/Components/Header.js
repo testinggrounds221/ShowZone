@@ -1,6 +1,6 @@
 import React from 'react';
 import Navigation from './Navigation'
-
+import { Link } from 'react-router-dom'
 
 function Header(){
 	return(
@@ -8,9 +8,11 @@ function Header(){
 		<div className="mx-2 mr-3">
 			<Navigation />
 		</div>
-			
-		<span className="font-head text-center tracking-wide">
+		
+		<span className="tMain text-center tracking-wide">
+		<Link to="/">
 		ShowZone
+		</Link>
 		</span>
 
 				

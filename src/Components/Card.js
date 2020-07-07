@@ -20,7 +20,7 @@ function Card(props){
 	  }
 	return(
 		// bg-pl-2
-		<div className="shadow flex content-center my-4">
+		<div className="shadow flex content-center">
         	<div className="mx-auto">
 			<Link to={props.link}>
 				<div style={imgStyle}>
