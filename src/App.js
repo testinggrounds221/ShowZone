@@ -57,11 +57,12 @@ function App() {
             <LoginControl />
           </Route>
         </Switch>
+
         </div>
         
       </Router>
 
-      <Footer />      
+            
       
     </div>
   );

@@ -8,8 +8,8 @@ function Footer(){
 	// <Button name="Back" clk={() => history.goBack()} />
 	// <div >&copy; Copyright 2020</div>
 	return(
-		<div className="text-center text-xs font-bold fixed bottom-0 bg-white w-fulll z-10"> 
-			<div className=" flex justify-between items-center bg-pl-1">
+		<div className="text-center text-xs font-bold fixed bottom-0 right-0 rounded-full w-fulll z-10">
+			<div className="flex bg-red-700 p-4 rounded-full">
 				<Navigation />
 				
 			</div>

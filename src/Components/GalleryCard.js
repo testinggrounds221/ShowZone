@@ -23,7 +23,9 @@ function GalleryCard(props) {
       });
 
       if (backGr.length === 0) {
-        return <ImageLoader loc={props.loc} />;
+        return(<div className="mx-16">
+          <ImageLoader loc={props.loc} />
+        </div>);
       } else {
         backGr = shuffle(backGr);
 
@@ -46,7 +48,7 @@ function GalleryCard(props) {
 
       content = shGal.map((img) => (
         <div
-          key = {img.id}
+          key={img.id}
           className="my-8 shadow justify-center"
           onClick={() => open(img.resolutions.original.url)}
         >
@@ -65,19 +67,19 @@ function GalleryCard(props) {
       });
 
       if (bann.length === 0) {
-        return <ImageLoader loc={props.loc} />;
+        return <div></div>;
       } else {
         bann = shuffle(bann);
 
         content = (
           <Link to={`/show/${props.id}`}>
-          <div className="my-8 shadow justify-center">
-            <img
-              className="content-center h-auto w-full rounded-md"
-              src={bann[0].resolutions.original.url}
-              alt="Hey"
-            ></img>
-          </div>
+            <div className="my-8 shadow justify-center">
+              <img
+                className="content-center h-auto w-full rounded-md"
+                src={bann[0].resolutions.original.url}
+                alt="Hey"
+              ></img>
+            </div>
           </Link>
         );
       }

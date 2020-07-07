@@ -7,7 +7,10 @@ function SeasonCard(props){
 	content =
 		
 			<Link to={`/season/${ses.id}`}>
-				{ses.number}
+				<div>
+					<img src={`${ses.image.medium}`}></img>
+				Season {ses.number}
+				</div>
 			</Link>
 		
 	

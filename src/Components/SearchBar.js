@@ -21,7 +21,7 @@ function SearchBar(props) {
   sby = by;
   content = (
     <div>
-      <div className="items-center inline justify-evenly">
+      {/* <div className="items-center inline justify-evenly">
         <input
           id="txtBox"
           type="text"
@@ -31,7 +31,7 @@ function SearchBar(props) {
         
 			<div onClick={srch} className="outline-none"> GO </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
   // window.location.reload(false);

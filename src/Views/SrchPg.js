@@ -36,7 +36,7 @@ class LoginControl extends React.Component {
               placeholder="Search"
               autoComplete="off"
             ></input>
-            <div onClick={this.handleLoginClick} className="w-1/4 h-10 bg-pl-4 mt-8 flex justify-evenly mx-auto rounded-md">
+            <div onClick={this.handleLoginClick} className="w-1/4 h-10 bg-pl-4 mt-8 flex justify-evenly mx-auto rounded-md outline-none">
               <LoginButton  />
             </div>
           </div>
@@ -89,7 +89,9 @@ function BrowseCards(props) {
     82,
     20683,
     124,
+    17861
   ];
+  
   ids=shuffle(ids)
   let content = ids.map((id) => (
     <div key={id} className="content-center w-full items-center justify-center">
@@ -108,7 +110,11 @@ function Greeting(props) {
 }
 
 function LoginButton(props) {
-  return <button onClick={props.onClick}>GO !!!</button>;
+  return (
+    <button onClick={props.onClick} className="outline-none">
+      GO
+    </button>
+  );
 }
 
 function LogoutButton(props) {

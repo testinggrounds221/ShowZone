@@ -29,6 +29,7 @@ function Navigation() {
 		<span className="text-xl">
 		<FontAwesomeIcon
 			icon={faBars}
+			color="red"
 			onClick={() => {
 			setShowMenu(!showMenu);
 			}}
