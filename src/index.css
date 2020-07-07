@@ -16,7 +16,7 @@
 
 .tCon {
     color: #f3f3f3 ;
-    font-family: 'Mukta', sans-serif;    
+    font-family: 'Poppins', sans-serif;    
     
 }
 
@@ -24,6 +24,11 @@
     color: #f3f3f3;
     font-family: 'Poppins', sans-serif;
     
+}
+
+.tMain {
+    font-family: 'Alegreya Sans SC', sans-serif;
+    color: #f3f3f3
 }
 
 /* Safari */

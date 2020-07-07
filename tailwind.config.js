@@ -8,10 +8,10 @@ module.exports = {
       },
       colors:{
         pl: {
-          1:'#e8e4e1',
+          1:'#272E34',
           2:'#f9c49a',
           3:'#ec823a',
-          4:'#7c3c21'
+          4:'#E50914'
         },
         t: {
           1:'#282f44',
@@ -19,8 +19,11 @@ module.exports = {
           3:'#a0ffe6',
           4:'#f7f7f7',
         }
+      },
+      fontFamily:{
+        'f1':['Oswald'],
+        'head':['Pangolin']
       }
-      
     },
   },
   variants: {},

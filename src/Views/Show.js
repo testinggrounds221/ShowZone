@@ -7,7 +7,7 @@ import { useParams } from "react-router";
 import Loader from "../Components/Loader";
 import { useAxiosGetJSON } from "../Hooks/HttpRequests";
 import Card from "../Components/Card";
-
+import Button from "../Components/Button";
 import Rating from "../Components/Rating";
 import SeasonCard from "../Components/SeasonCard";
 import GalleryCard from "../Components/GalleryCard";
@@ -88,22 +88,21 @@ function Show() {
     ));
     let iter = (arr) =>
       arr.map((el) => (
-        <span className="tCon bg-gray-900 m-1 px-3 rounded-full tracking-wide">
+        <span className="tMain bg-gray-900 m-1 px-3 rounded-full tracking-wide">
           {el}
         </span>
       ));
     content = (
-      <div className="mx-auto h-full object-cover object-center bg-transparent p-0 content-center w-full">
-        <div className="w-auto">{bg}</div>
+      <div className="bg-pl-1 h-full bg-transparent p-0 w-full">
+        <div className="w-auto content-center ">{bg}</div>
         {/* <div className="bg-local h-full object-cover object-center bg-transparent p-0">
         <div className="w-full m-0">{bg}</div> */}
-        <div className="bg-black-t-50 z-10 h-auto -my-20 absolute w-screen">
-          <p className="text-pl-1 font-semibold text-4xl text-center">
-            {show.name}
-            {show.id}
+        <div className="bg-black-t-50 h-auto -my-20 absolute left-10 mx-2 w-11/12 rounded-md">
+          <p className="text-pl-1 font-semibold text-3xl text-center">
+            <span className="tMain">{show.name}</span>
           </p>
           <div className="text-center">
-            <Rating val={5.7222} />
+            <Rating val={show.rating.average} />
           </div>
 
           <p className="text-center">
@@ -114,8 +113,18 @@ function Show() {
             <span className="tHead">Type: </span>
             <span className="tCon">{show.type}</span>
           </p>
-          {galCards}
-          {ssnCards}
+          <div className="text-center px-32 my-5">
+            <Button name="Latest Episode" to={`/episode/${show._links.previousepisode.href.substring(31)}`}/>
+          </div>
+          {/* `/episode/${epi.id}` */}
+          <p className="tCon text-center tracking-wide my-2">
+            {stripHtml(show.summary)}
+          </p>
+          <div className="p-3">
+            {galCards}
+            {ssnCards}
+            {show.id}
+          </div>
         </div>
       </div>
     );

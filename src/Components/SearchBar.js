@@ -29,7 +29,7 @@ function SearchBar(props) {
         ></input>
 		<div className="w-auto flex items-center justify-evenly">
         
-			<div onClick={srch}> GO </div>
+			<div onClick={srch} className="outline-none"> GO </div>
         </div>
       </div>
     </div>
@@ -38,7 +38,7 @@ function SearchBar(props) {
   return (
     <div>
       {content}
-      {c2}
+      
     </div>
   );
 }

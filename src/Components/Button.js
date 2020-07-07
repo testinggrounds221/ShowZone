@@ -5,8 +5,8 @@ import React from 'react';
 function Button(props){
 	return(
 		<Link to={props.to? props.to:''}>
-			<div className="bg-pl-4 w-auto  rounded-lg mx-4" onClick={props.clk}>
-				<p className="text-center text-t-4 p-1 m-2">
+			<div className="bg-red-700 rounded-sm mx-4" onClick={props.clk}>
+				<p className="tMain text-center tracking-wide font-medium text-xl">
 					{props.name}
 				</p>
 			</div>
