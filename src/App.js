@@ -24,7 +24,7 @@ function App() {
       
       <Router>
       <Header />  
-        <div className = "p-3">
+        <div>
         <Switch>
           <Route exact path = "/">          
            <Home />
@@ -61,7 +61,7 @@ function App() {
         
       </Router>
 
-      
+      <Footer />      
       
     </div>
   );

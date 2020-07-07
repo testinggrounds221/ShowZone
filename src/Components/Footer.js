@@ -1,22 +1,16 @@
 import React from 'react';
 import Button from './Button'
 import { useHistory } from 'react-router-dom'
+import Navigation from './Navigation'
+
 function Footer(){
 	let history = useHistory()
 	// <Button name="Back" clk={() => history.goBack()} />
 	// <div >&copy; Copyright 2020</div>
 	return(
-		<div className="bg-gray-200 text-center text-xs font-bold p-3 fixed bottom-0 w-full z-10"> 
-			<div className="sticky flex justify-between items-center">
-				<div className="">
-					<Button name="Back" clk={() => history.goBack()} />
-				</div>
-				<div className="w-64"> 
-					<Button name="Home" to="/" />
-				</div>
-				<div className="">
-					<Button name="Forward" clk={() => history.goForward()} />
-				</div>
+		<div className="text-center text-xs font-bold fixed bottom-0 bg-white w-fulll z-10"> 
+			<div className=" flex justify-between items-center bg-pl-1">
+				<Navigation />
 				
 			</div>
 		</div>

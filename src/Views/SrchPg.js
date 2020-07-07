@@ -28,11 +28,11 @@ class LoginControl extends React.Component {
     let stay = (
       <div className="text-white">
         <div>
-          <div className="bg-pl-2 -mx-3 py-10">
+          <div className="bg-pl-1 py-10">
             <input
               id="txtBox"
               type="text"
-              className="outline-none text-center text-3xl focus:underline font-serif bg-pl-2 rounded-md w-full"
+              className="outline-none text-center font-serif bg-pl-1 rounded-md w-full tCon "
               placeholder="Search"
               autoComplete="off"
             ></input>
@@ -62,7 +62,7 @@ function Results(props) {
   let val = document.getElementById("txtBox").value;
   content = (
     <div>
-      <div className="text-center font-medium bg-pl-2 text-t-1 text-2xl rounded-full">Shows Matching "{val}"</div>
+      <div className="text-center font-medium text-t-1 text-2xl rounded-full">Shows Matching "{val}"</div>
       <ShowSearchResults val={val} by="shows" />
       <div className="text-center">People</div>
       <ShowSearchResults val={val} by="people" />

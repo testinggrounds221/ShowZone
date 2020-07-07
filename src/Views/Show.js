@@ -81,11 +81,7 @@ function Show() {
         </AccordionDetails>
       </Accordion>
     ));
-    let genCards = show.genres.map((gen) => (
-      <span className="tCon bg-gray-900 m-1 px-2 rounded-full tracking-wide">
-        {gen}
-      </span>
-    ));
+    
     let iter = (arr) =>
       arr.map((el) => (
         <span className="tMain bg-gray-900 m-1 px-3 rounded-full tracking-wide">
@@ -93,11 +89,11 @@ function Show() {
         </span>
       ));
     content = (
-      <div className="bg-pl-1 h-full bg-transparent p-0 w-full">
-        <div className="w-auto content-center ">{bg}</div>
+      <div className=" h-full bg-pl-1 p-0 w-full">
+        <div className="w-auto">{bg}</div>
         {/* <div className="bg-local h-full object-cover object-center bg-transparent p-0">
         <div className="w-full m-0">{bg}</div> */}
-        <div className="bg-black-t-50 h-auto -my-20 absolute left-10 mx-2 w-11/12 rounded-md">
+        <div className="bg-black-t-50 h-auto -my-20 absolute mx-3 w-11/12 rounded-md">
           <p className="text-pl-1 font-semibold text-3xl text-center">
             <span className="tMain">{show.name}</span>
           </p>
@@ -113,10 +109,12 @@ function Show() {
             <span className="tHead">Type: </span>
             <span className="tCon">{show.type}</span>
           </p>
-          <div className="text-center px-32 my-5">
-            <Button name="Latest Episode" to={`/episode/${show._links.previousepisode.href.substring(31)}`}/>
+          <div className="text-center my-5">
+            <Button
+              name="Latest Episode"
+              to={`/episode/${show._links.previousepisode.href.substring(31)}`}
+            />
           </div>
-          {/* `/episode/${epi.id}` */}
           <p className="tCon text-center tracking-wide my-2">
             {stripHtml(show.summary)}
           </p>

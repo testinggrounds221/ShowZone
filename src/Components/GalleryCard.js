@@ -23,10 +23,7 @@ function GalleryCard(props) {
       });
 
       if (backGr.length === 0) {
-        return(<div className="text-center px-32">
-          <ImageLoader loc={props.loc} />;
-        </div>) 
-        
+        return <ImageLoader loc={props.loc} />;
       } else {
         backGr = shuffle(backGr);
 

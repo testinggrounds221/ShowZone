@@ -25,9 +25,9 @@ function SearchBar(props) {
         <input
           id="txtBox"
           type="text"
-          className=" font-f1 bg-pl-2 text-black rounded-md w-full"
+          className=" font-f1 text-black rounded-md"
         ></input>
-		<div className="w-auto flex items-center justify-evenly">
+		<div className="flex items-center justify-evenly">
         
 			<div onClick={srch} className="outline-none"> GO </div>
         </div>
