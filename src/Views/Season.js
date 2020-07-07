@@ -4,7 +4,7 @@ import {useAxiosGetArray} from '../Hooks/HttpRequests'
 import Loader from '../Components/Loader'
 import EpisodeCard from '../Components/EpisodeCard'
 function Season(){
-	console.log('sesaon page')
+	
 	let { id } = useParams()
 	const url = `http://api.tvmaze.com/seasons/${id}/episodes`
 	let content = null
@@ -23,7 +23,7 @@ function Season(){
 	}
 	
 	if(req.data){
-		console.log(req.data);
+		
 		let epiCards = null;
 
 		epiCards = req.data.map((el) =>

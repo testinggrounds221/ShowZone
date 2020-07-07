@@ -3,7 +3,12 @@ import { useParams }from 'react-router'
 import { useAxiosGetJSON,useAxiosGetArray } from '../Hooks/HttpRequests';
 import Loader from '../Components/Loader'
 import ImageLoader from '../Components/ImageLoader';
-import ShowCard from '../Components/ShowCard';
+import Accordion from "@material-ui/core/Accordion";
+import AccordionDetails from "@material-ui/core/AccordionDetails";
+import AccordionSummary from "@material-ui/core/AccordionSummary";
+
+import Card from '../Components/Card';
+
 function Person(){
 	let {id} = useParams()
 	//const url = `http://api.tvmaze.com/people/1`
@@ -30,12 +35,17 @@ function Person(){
 		let crd = req2.data;
 		let crdCards = null;
 
-		crdCards = crd.map((shw) => 
-			<div>
-			<ShowCard product={shw._embedded} />
+		crdCards = 
+		<Accordion>
+			<AccordionSummary>Cast Credits </AccordionSummary>
+		{crd.map((shw) => 
+			<AccordionDetails>
+			<div key={shw._embedded.show.id}>		
+			<Card name={shw._embedded.show.name} link={`/show/${shw._embedded.show.id}`} img={shw._embedded.show.image? shw._embedded.show.image.medium:null } />
 			</div>
-		
-		)
+			</AccordionDetails>
+		)}
+		</Accordion>
 
 
 		let lc = null 

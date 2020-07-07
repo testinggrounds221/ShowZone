@@ -93,7 +93,7 @@ function BrowseCards(props) {
   ids=shuffle(ids)
   let content = ids.map((id) => (
     <div key={id} className="content-center w-full items-center justify-center">
-      <GalleryCard  id={id} type="banner" for="gal"/>
+      <GalleryCard  id={id} type="banner" for="hmBann"/>
     </div>
   ));
   return <div>{content}</div>;

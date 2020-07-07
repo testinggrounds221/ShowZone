@@ -1,3 +1,11 @@
 git fetch
 
 git reset --hard origin/Product
+
+
+
+Aladin Regular
+Adamina Regular
+Alegreya Medium
+Alegreya SC Regular **
+Alegreya SC Medium

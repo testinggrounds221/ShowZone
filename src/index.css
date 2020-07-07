@@ -14,6 +14,23 @@
     animation: spin 2s linear infinite;
 }
 
+.tCon {
+    color: #f3f3f3 ;
+    font-family: 'Poppins', sans-serif;    
+    
+}
+
+.tHead {
+    color: #f3f3f3;
+    font-family: 'Poppins', sans-serif;
+    
+}
+
+.tMain {
+    font-family: 'Alegreya Sans SC', sans-serif;
+    color: #f3f3f3
+}
+
 /* Safari */
 @-webkit-keyframes spin {
     0% { -webkit-transform: rotate(0deg); }
