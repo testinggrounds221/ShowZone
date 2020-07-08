@@ -2,7 +2,7 @@ import React from "react";
 import { useParams } from "react-router";
 import { useAxiosGetJSON, useAxiosGetArray } from "../Hooks/HttpRequests";
 import Loader from "../Components/Loader";
-import ImageLoader from "../Components/ImageLoader";
+
 import Accordion from "@material-ui/core/Accordion";
 import AccordionDetails from "@material-ui/core/AccordionDetails";
 import AccordionSummary from "@material-ui/core/AccordionSummary";
@@ -70,11 +70,11 @@ function Person() {
       key.push("Gender");
     }
     if (per.birthday) {
-      value.push(date(per.birthday));
       value.push(calDiff(per.birthday, per.deathday));
+      value.push(date(per.birthday));
 
-      key.push("Birthday");
       key.push("Age");
+      key.push("Birthday");
     }
     let info = value.map((elem, i) => (
       <p className="text-center m-4">
@@ -84,14 +84,21 @@ function Person() {
     ));
     content = (
       <div className="h-full">
-        <img src={per.image.medium} className="mx-auto"></img>
+        {per.image && <img src={per.image.medium} className="mx-auto"></img>}
+        {!per.image && (
+          <img
+            src="https://opendoodles.s3-us-west-1.amazonaws.com/loving.png"
+            className="mx-auto"
+          ></img>
+        )}
         <div className="bg-black-t-50 mx-auto w-11/12 text-lg -my-10 z-10 absolute inset-x-0">
           <p className="text-center">
             <span className="tMain font-semibold text-3xl text-center">
               {per.name}
             </span>
           </p>
-          {info}          
+          {info}
+
           {crdCards}
         </div>
       </div>

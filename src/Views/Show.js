@@ -74,7 +74,7 @@ function Show() {
           {show._embedded.seasons.map((el) => (
             <AccordionDetails key={el.id}>
               <div key={el.id} className="mx-auto">
-                <SeasonCard sn={el} />
+                <SeasonCard sn={el} shid={id}/>
               </div>
             </AccordionDetails>
           ))}
@@ -129,7 +129,7 @@ function Show() {
     ) : (
       <div></div>
     );
-    let key = ["Type :", "Runtime :", "Language :", "Premiered :"];
+    let key = ["Type", "Runtime", "Language", "Premiered"];
     let value = [
       show.type,
       show.runtime ? show.runtime : "Specific",
