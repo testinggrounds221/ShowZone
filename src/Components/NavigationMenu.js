@@ -6,8 +6,8 @@ import { faHome,faInfo,faPlay,faTheaterMasks } from "@fortawesome/free-solid-svg
 function NavigationMenu(props){
 	
 	return(
-		<div className="bg-gray-700">
-		<div className="font-bold py-3 px-3 bg-gray-700">
+		<div>
+		<div className="font-bold py-3">
 				ShowZone
 
 			</div>

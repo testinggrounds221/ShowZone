@@ -50,11 +50,11 @@ function Show() {
     castCards = (
       <Accordion>
         <AccordionSummary>
-          <span className="tMain text-lg"> Cast </span>
+          <span className="text-center"> Cast </span>
         </AccordionSummary>
         {show._embedded.cast.map((elem) => (
           <AccordionDetails key={elem.person.id}>
-            <div key={elem.person.id} className="mx-auto z-50">
+            <div key={elem.person.id} className="mx-auto">
               <Card
                 name={elem.person.name}
                 link={`/person/${elem.person.id}`}
@@ -69,9 +69,7 @@ function Show() {
     ssnCards = (
       <ThemeProvider theme={theme}>
         <Accordion TransitionProps={{ unmountOnExit: true }}>
-          <AccordionSummary>
-          <span className="tMain text-lg">Seasons</span>
-          </AccordionSummary>
+          <AccordionSummary>Seasons</AccordionSummary>
           {show._embedded.seasons.map((el) => (
             <AccordionDetails key={el.id}>
               <div key={el.id} className="mx-auto">
@@ -87,7 +85,7 @@ function Show() {
     let galCards = types.map((type, i) => (
       <Accordion>
         <AccordionSummary aria-controls="panel1a-content">
-          <span className="tMain text-lg">{nm[i]}</span>
+          {nm[i]}
         </AccordionSummary>
         <AccordionDetails>
           <div>
@@ -116,7 +114,6 @@ function Show() {
     ) : (
       <div></div>
     );
-    
     content = (
       <div className="h-full bg-pl-1 p-0 w-full">
         {bg}
@@ -128,37 +125,13 @@ function Show() {
             <div className="text-center">{rat}</div>
 
             <p className="text-center">
-              <span className="font-cairo text-lg text-t-4">Genres : </span>
+              <span className="tHead">Genres : </span>
               {iter(show.genres)}
             </p>
             <p className="text-center">
-              <span className="font-cairo text-lg text-t-4">Type: </span>
-              <span className="tMain bg-gray-900 m-1 px-3 rounded-full tracking-wide">
-          {show.type}
-        </span>
+              <span className="tHead">Type: </span>
+              <span className="tCon tracking-wide mx-1">{show.type}</span>
             </p>
-            <p className="text-center">
-              <span className="font-cairo text-lg text-t-4">Runtime: </span>
-              <span className="tMain bg-gray-900 m-1 px-3 rounded-full tracking-wide">
-          {show.runtime? show.runtime:"Specific"}
-        </span>
-            </p>
-            <p className="text-center">
-              <span className="font-cairo text-lg text-t-4">Language: </span>
-              <span className="tMain bg-gray-900 m-1 px-3 rounded-full tracking-wide">
-          {show.language}
-        </span>
-            </p>
-            <p className="text-center">
-              <span className="font-cairo text-lg text-t-4">Premiered: </span>
-              <span className="tMain bg-gray-900 m-1 px-3 rounded-full tracking-wide">
-          {date(show.premiered)}
-        </span>
-            </p>
-
-            <span className="tMain bg-gray-900 m-1 px-3 rounded-full tracking-wide">
-          {show.status}
-        </span>
             <div className="text-center my-5">
               <Button
                 name="Latest Episode"
@@ -167,11 +140,9 @@ function Show() {
                 )}`}
               />
             </div>
-
             <p className="tCon text-center tracking-wide my-2">
               {stripHtml(show.summary)}
             </p>
-            
 
             <div className="p-3">
               {castCards}
@@ -193,19 +164,5 @@ function Show() {
     return tmp.textContent || tmp.innerText || "";
   }
 }
-  function date(str) {
-    let yr = str.substring(0,4);
-    let mon = ["Jan","Feb","Mar","Apr","May","June","July","April","Sep","Oct","Nov","Dec"]
-    let month = mon[parseInt(str.substring(5,7))-1]
-    let day = str.substring(8);
-    return(day+' '+month+' '+yr)
-  }
-function open(url) {
-  const win = window.open(url, "_blank");
-  if (win != null) {
-    win.focus();
-  }
-}
-
 
 export default Show;

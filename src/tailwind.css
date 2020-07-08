@@ -6416,18 +6416,6 @@ video {
   font-family: Pangolin;
 }
 
-.font-cairo {
-  font-family: Cairo, sans-serif;
-}
-
-.font-alegra-sc {
-  font-family: Alegreya SC, serif;
-}
-
-.font-big-soulders {
-  font-family: Big Shoulders Display;
-}
-
 .font-hairline {
   font-weight: 100;
 }
@@ -20808,18 +20796,6 @@ video {
     font-family: Pangolin;
   }
 
-  .sm\:font-cairo {
-    font-family: Cairo, sans-serif;
-  }
-
-  .sm\:font-alegra-sc {
-    font-family: Alegreya SC, serif;
-  }
-
-  .sm\:font-big-soulders {
-    font-family: Big Shoulders Display;
-  }
-
   .sm\:font-hairline {
     font-weight: 100;
   }
@@ -35165,18 +35141,6 @@ video {
 
   .md\:font-head {
     font-family: Pangolin;
-  }
-
-  .md\:font-cairo {
-    font-family: Cairo, sans-serif;
-  }
-
-  .md\:font-alegra-sc {
-    font-family: Alegreya SC, serif;
-  }
-
-  .md\:font-big-soulders {
-    font-family: Big Shoulders Display;
   }
 
   .md\:font-hairline {
@@ -49526,18 +49490,6 @@ video {
     font-family: Pangolin;
   }
 
-  .lg\:font-cairo {
-    font-family: Cairo, sans-serif;
-  }
-
-  .lg\:font-alegra-sc {
-    font-family: Alegreya SC, serif;
-  }
-
-  .lg\:font-big-soulders {
-    font-family: Big Shoulders Display;
-  }
-
   .lg\:font-hairline {
     font-weight: 100;
   }
@@ -63883,18 +63835,6 @@ video {
 
   .xl\:font-head {
     font-family: Pangolin;
-  }
-
-  .xl\:font-cairo {
-    font-family: Cairo, sans-serif;
-  }
-
-  .xl\:font-alegra-sc {
-    font-family: Alegreya SC, serif;
-  }
-
-  .xl\:font-big-soulders {
-    font-family: Big Shoulders Display;
   }
 
   .xl\:font-hairline {
