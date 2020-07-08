@@ -59,14 +59,41 @@ function Person() {
       </ThemeProvider>
     );
 
+    let key = [];
+    let value = [];
+    if (per.country) {
+      value.push(per.country.name);
+      key.push("Country");
+    }
+    if (per.gender) {
+      value.push(per.gender);
+      key.push("Gender");
+    }
+    if (per.birthday) {
+      value.push(date(per.birthday));
+      value.push(calDiff(per.birthday, per.deathday));
+
+      key.push("Birthday");
+      key.push("Age");
+    }
+    let info = value.map((elem, i) => (
+      <p className="text-center m-4">
+        <span className="tKey">{key[i]}</span>
+        <span className="tVal bg-pl-1">{elem}</span>
+      </p>
+    ));
     content = (
       <div className="h-full">
         <img src={per.image.medium} className="mx-auto"></img>
-        <div className="bg-black-t-50 h-full mx-auto w-11/12 text-lg">
-          
+        <div className="bg-black-t-50 mx-auto w-11/12 text-lg -my-10 z-10 absolute inset-x-0">
+          <p className="text-center">
+            <span className="tMain font-semibold text-3xl text-center">
+              {per.name}
+            </span>
+          </p>
+          {info}          
           {crdCards}
         </div>
-        
       </div>
     );
   }
@@ -77,6 +104,27 @@ function Person() {
     let d2 = s2 ? new Date(s2) : new Date();
     return Math.floor((d2 - d1) / (1000 * 60 * 60 * 24 * 365));
   }
+}
+function date(str) {
+  if (!str) {
+    return "Unknown";
+  }
+  let dt = new Date(str);
+  let mon = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "June",
+    "July",
+    "April",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
+  return dt.getDate() + " " + mon[dt.getMonth()] + " " + dt.getFullYear();
 }
 
 export default Person;

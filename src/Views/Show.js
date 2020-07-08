@@ -100,7 +100,7 @@ function Show() {
 
     let iter = (arr) =>
       arr.map((el) => (
-        <span className=" inline-block tMain bg-gray-900 m-1 text-xl px-3 py-2 rounded-lg tracking-wide">
+        <span className="tMain bg-pl-1 text-xl mx-2 px-3 rounded-lg tracking-wide inline-block m-1">
           {el}
         </span>
       ));
@@ -129,11 +129,6 @@ function Show() {
     ) : (
       <div></div>
     );
-    let capsule = (text) => (
-      <span className="tMain bg-gray-900 m-1 text-xl px-3 py-2 rounded-lg tracking-wide">
-        {text}
-      </span>
-    );
     let key = ["Type :", "Runtime :", "Language :", "Premiered :"];
     let value = [
       show.type,
@@ -143,10 +138,8 @@ function Show() {
     ];
     let info = value.map((elem, i) => (
       <p className="text-center m-4">
-        <span className="font-cairo text-2xl text-t-4">{key[i]}</span>
-        <span className="tMain bg-gray-900 m-1 text-xl px-3 py-2 rounded-lg tracking-wide">
-          {elem}
-        </span>
+        <span className="tKey">{key[i]}</span>
+        <span className="tVal bg-pl-1">{elem}</span>
       </p>
     ));
     content = (
@@ -161,24 +154,22 @@ function Show() {
             <div className="text-center">{rat}</div>
 
             <p className="text-center">
-              <span className="font-cairo text-2xl text-t-4">Genres : </span>
+              <span className="tKey">Genres : </span>
               {iter(show.genres)}
             </p>
 
             {info}
 
-            {capsule(show.status)}
-
             <div className="text-center m-2">
               {bt}
               {hm_bt}
             </div>
-
+            <span className="tVal bg-pl-1">{show.status}</span>
             <p className="tCon text-center tracking-wide my-2">
               {stripHtml(show.summary)}
             </p>
 
-            <div className="p-3">
+            <div className="p-3 bg-pl-1">
               {castCards}
               {ssnCards}
               {galCards}

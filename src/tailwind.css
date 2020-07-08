@@ -14987,6 +14987,29 @@ video {
   color: #f3f3f3
 }
 
+.tKey {
+  font-family: 'Cairo', 'sans-serif';
+  color: #f3f3f3;
+  font-size: 1.25rem;
+}
+
+.tVal {
+  font-family: 'Alegreya Sans SC', sans-serif;
+  color: #f3f3f3;
+  font-size: 1.25rem;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  border-radius: 0.5rem;
+  letter-spacing: 0.025em;
+  background-color: '#272E34';
+}
+
+/* font-cairo text-lg text-t-4 */
+
 /* Safari */
 
 @keyframes spin {
