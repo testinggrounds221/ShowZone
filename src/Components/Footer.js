@@ -1,10 +1,10 @@
 import React from 'react';
-import Button from './Button'
+// import Button from './Button'
 import { useHistory } from 'react-router-dom'
 import Navigation from './Navigation'
 
 function Footer(){
-	let history = useHistory()
+	// let history = useHistory()
 	// <Button name="Back" clk={() => history.goBack()} />
 	// <div >&copy; Copyright 2020</div>
 	return(

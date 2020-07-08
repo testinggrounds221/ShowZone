@@ -111,7 +111,7 @@ function Greeting(props) {
 
 function LoginButton(props) {
   return (
-    <button onClick={props.onClick} className="outline-none">
+    <button onClick={() => props.onClick} className="outline-none">
       GO
     </button>
   );

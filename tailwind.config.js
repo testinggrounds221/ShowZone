@@ -22,7 +22,11 @@ module.exports = {
       },
       fontFamily:{
         'f1':['Oswald'],
-        'head':['Pangolin']
+        'head':['Pangolin'],
+        'cairo':['Cairo', 'sans-serif'],
+        'alegra-sc':['Alegreya SC', 'serif'],
+        'big-soulders':['Big Shoulders Display'],
+        
       }
     },
   },

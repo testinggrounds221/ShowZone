@@ -11,7 +11,7 @@ function Rating(props) {
         <FontAwesomeIcon icon={el.name} color={el.color} size={el.size} />
       </span>
     ));
-  let ic = { name: null, cl: null };
+  
   let str = [];
   let i = 0;
   for (i = 0; i < full; i++) {
@@ -28,8 +28,8 @@ function Rating(props) {
   }
   let j = 0;
   for (j = 0; j < 5; j++) {
-    if ((j==0) || (j==4)) str[j].size = "x";
-	else if((j==1) || (j==3)) str[j].size = "2x";
+    if ((j===0) || (j===4)) str[j].size = "x";
+	else if((j===1) || (j===3)) str[j].size = "2x";
 	else str[j].size = "3x";
   }
 
