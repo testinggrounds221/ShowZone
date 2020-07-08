@@ -14,8 +14,8 @@ function ImageLoader(props) {
   } else {
     content = (
       <div>
-        <div className="object-none object-center">
-          <div className="w-full h-full">
+        <div className="mx-auto">
+          <div className="w-full h-full mx-auto">
             <img src={props.loc} alt="ImageLoader Error"></img>
           </div>
         </div>

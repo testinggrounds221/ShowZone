@@ -2,7 +2,7 @@ import React from "react";
 import { useAxiosGetArray } from "../Hooks/HttpRequests";
 import Loader from "./Loader";
 import { Link } from "react-router-dom";
-import ImageLoader from "./ImageLoader";
+
 // http://api.tvmaze.com/shows/1/images
 function GalleryCard(props) {
   const url = `http://api.tvmaze.com/shows/${props.id}/images`;
@@ -23,8 +23,9 @@ function GalleryCard(props) {
       });
 
       if (backGr.length === 0) {
-        return(<div className="mx-16">
-          <ImageLoader loc={props.loc} />
+        return(<div>
+          <img src={props.loc} className="mx-auto"></img>
+          
         </div>);
       } else {
         backGr = shuffle(backGr);
