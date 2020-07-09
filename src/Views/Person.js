@@ -82,15 +82,17 @@ function Person() {
         <span className="tVal bg-pl-1">{elem}</span>
       </p>
     ));
+    //https://opendoodles.s3-us-west-1.amazonaws.com/loving.png
     content = (
       <div className="h-full">
         {per.image && <img src={per.image.medium} className="mx-auto"></img>}
         {!per.image && (
           <img
-            src="https://opendoodles.s3-us-west-1.amazonaws.com/loving.png"
-            className="mx-auto"
+            src="https://raw.githubusercontent.com/testinggrounds221/ShowZone/master/i/per.svg"
+            className="mx-auto rounded-full h-3/5 w-3/5"
           ></img>
         )}
+
         <div className="bg-black-t-50 mx-auto w-11/12 text-lg -my-10 z-10 absolute inset-x-0">
           <p className="text-center">
             <span className="tMain font-semibold text-3xl text-center">

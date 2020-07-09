@@ -44,36 +44,37 @@ function Season() {
 
     let info = val.map((elem, i) => (
       <p className="text-center m-4">
-        <span className="tKey">{key[i]}</span>
-        <span className="tVal bg-pl-1">{elem}</span>
+      <span className="tKey">{key[i]}</span>
+      <span className="tVal bg-pl-1">{elem}</span>
       </p>
-    ));
+      ));
 
     epiCards = req.data.map((el) => (
-      <div key={el.id} className=" w-4/5 mx-auto my-4">
-        <EpisodeCard ep={el} />
+      <div key={el.id} className=" w-3/5 mx-auto my-4">
+      <EpisodeCard ep={el} sesid={id}/>
       </div>
-    ));
+      ));
+//https://raw.githubusercontent.com/testinggrounds221/ShowZone/master/images/undraw_video_files_fu10.png
 
-    content = (
-      <div>
-        {ses.image && ses.image && <img src={ses.image.medium} className="mx-auto"></img>}
-        {!ses.image && <img src={ses.image.medium} className="mx-auto"></img>}
-        <div className="absolute bg-black-t-50 mx-auto inset-x-0 w-11/12 -my-10 rounded-md ">
-          <p className="text-center">
-            <span className="tMain text-pl-1 font-semibold text-3xl">
-              Season {ses.number}
-            </span>
-          </p>
+content = (
+  <div>
+  {ses.image && <img src={ses.image.medium} className="mx-auto"></img>}
+  {!ses.image && <img src="https://raw.githubusercontent.com/testinggrounds221/ShowZone/master/i/ses.svg" className="mx-auto w-2/3"></img>}>
+  <div className="absolute bg-black-t-50 mx-auto inset-x-0 w-11/12 -my-10 rounded-md ">
+  <p className="text-center">
+  <span className="tMain text-pl-1 font-semibold text-3xl">
+  Season {ses.number}
+  </span>
+  </p>
 
-          {info}
-        </div>
-        <div className="absolute my-32 py-10">{epiCards}</div>
-      </div>
-    );
-  }
+  {info}
+  </div>
+  <div className="my-32 py-10 mx-auto">{epiCards}</div>
+  </div>
+  );
+}
 
-  return <div>{content}</div>;
+return <div>{content}</div>;
 }
 
 export default Season;

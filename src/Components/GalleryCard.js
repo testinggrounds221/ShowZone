@@ -24,21 +24,24 @@ function GalleryCard(props) {
 
       if (backGr.length === 0) {
         return(<div>
-          <img src={props.loc} className="mx-auto"></img>
+          {props.loc && <img src={props.loc} className="mx-auto"></img>}
+          {!props.loc && <img src="https://raw.githubusercontent.com/testinggrounds221/ShowZone/master/i/mv.svg" className="mx-auto"></img>}
+
           
-        </div>);
+          </div>);
       } else {
         backGr = shuffle(backGr);
 
         content = (
           <div className="my-8 shadow justify-center">
-            <img
-              className="content-center h-auto w-full rounded-md"
-              src={backGr[0].resolutions.original.url}
-              alt="Hey"
-            ></img>
+          <img
+          className="content-center h-auto w-full rounded-md"
+          src={backGr[0].resolutions.original.url}
+          alt="Hey"
+          ></img>
+          
           </div>
-        );
+          );
       }
     }
     // Gallery View
@@ -49,22 +52,22 @@ function GalleryCard(props) {
 
       content = shGal.map((img) => (
         <div
-          key={img.id}
-          className="my-8 shadow justify-center"
-          onClick={() => open(img.resolutions.original.url)}
+        key={img.id}
+        className="my-8 shadow justify-center"
+        onClick={() => open(img.resolutions.original.url)}
         >
-          <img
-            className="content-center h-auto w-full rounded-md"
-            src={img.resolutions.original.url}
-            alt="Hey"
-          ></img>
+        <img
+        className="content-center h-auto w-full rounded-md"
+        src={img.resolutions.original.url}
+        alt="Hey"
+        ></img>
         </div>
-      ));
+        ));
     }
 
     if (props.for === "hmBann") {
       let bann = req.data.filter((img) => {
-        return img.type === "banner";
+        return img.type === "banner" || img.type === "background";
       });
 
       if (bann.length === 0) {
@@ -74,15 +77,15 @@ function GalleryCard(props) {
 
         content = (
           <Link to={`/show/${props.id}`}>
-            <div className="my-8 shadow justify-center">
-              <img
-                className="content-center h-auto w-full rounded-md"
-                src={bann[0].resolutions.original.url}
-                alt="Hey"
-              ></img>
-            </div>
+          <div className="my-8 shadow justify-center">
+          <img
+          className="content-center h-auto w-full rounded-md"
+          src={bann[0].resolutions.original.url}
+          alt="Hey"
+          ></img>
+          </div>
           </Link>
-        );
+          );
       }
     }
   }
