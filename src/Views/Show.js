@@ -46,181 +46,174 @@ function Show() {
 
     castCards = (
       <ThemeProvider theme={theme}>
-      <Accordion>
-      <AccordionSummary>
-      <span className="tMain text-lg"> Cast </span>
-      </AccordionSummary>
-      {show._embedded.cast.map((elem) => (
-        <AccordionDetails key={elem.person.id}>
-        <div key={elem.person.id} className="mx-auto z-50">
-        <Card
-        name={elem.person.name}
-        link={`/person/${elem.person.id}`}
-        img={elem.person.image ? elem.person.image.medium : null}
-        />
-        </div>
-        </AccordionDetails>
-        ))}
-      </Accordion>
+        <Accordion>
+          <AccordionSummary>
+            <span className="tMain text-lg"> Cast </span>
+          </AccordionSummary>
+          {show._embedded.cast.map((elem) => (
+            <AccordionDetails key={elem.person.id}>
+              <div key={elem.person.id} className="mx-auto z-50">
+                <Card
+                  name={elem.person.name}
+                  link={`/person/${elem.person.id}`}
+                  img={elem.person.image ? elem.person.image.medium : null}
+                />
+              </div>
+            </AccordionDetails>
+          ))}
+        </Accordion>
       </ThemeProvider>
-      );
+    );
 
     ssnCards = (
       <ThemeProvider theme={theme}>
-      <Accordion TransitionProps={{ unmountOnExit: true }}>
-      <AccordionSummary>
-      <span className="tMain text-lg">Seasons</span>
-      </AccordionSummary>
-      {show._embedded.seasons.map((el) => (
-        <AccordionDetails key={el.id}>
-        <div key={el.id} className="mx-auto">
-        <SeasonCard sn={el} />
-        </div>
-        </AccordionDetails>
-        ))}
-      </Accordion>
+        <Accordion TransitionProps={{ unmountOnExit: true }}>
+          <AccordionSummary>
+            <span className="tMain text-lg">Seasons</span>
+          </AccordionSummary>
+          {show._embedded.seasons.map((el) => (
+            <AccordionDetails key={el.id}>
+              <div key={el.id} className="mx-auto">
+                <SeasonCard sn={el} shid={id}/>
+              </div>
+            </AccordionDetails>
+          ))}
+        </Accordion>
       </ThemeProvider>
-      );
+    );
     let nm = ["Posters", "Wallpapers", "Banners", "Typographies"];
     let types = ["Poster", "background", "banner", "typography"];
     let galCards = types.map((type, i) => (
       <ThemeProvider theme={theme}>
-      <Accordion>
-      <AccordionSummary aria-controls="panel1a-content">
-      <span className="tMain text-lg">{nm[i]}</span>
-      </AccordionSummary>
-      <AccordionDetails>
-      <div>
-      <GalleryCard type={type.toLowerCase()} id={id} for="shwGal" />
-      </div>
-      </AccordionDetails>
-      </Accordion>
+        <Accordion>
+          <AccordionSummary aria-controls="panel1a-content">
+            <span className="tMain text-lg">{nm[i]}</span>
+          </AccordionSummary>
+          <AccordionDetails>
+            <div>
+              <GalleryCard type={type.toLowerCase()} id={id} for="shwGal" />
+            </div>
+          </AccordionDetails>
+        </Accordion>
       </ThemeProvider>
-      ));
+    ));
 
     let iter = (arr) =>
-    arr.map((el) => (
-      <span className="tMain bg-gray-900 m-1 px-3 rounded-full tracking-wide">
-      {el}
-      </span>
+      arr.map((el) => (
+        <span className="tMain bg-pl-1 text-xl mx-2 px-3 rounded-lg tracking-wide inline-block m-1">
+          {el}
+        </span>
       ));
     let rat = show.rating.average ? (
       <Rating val={show.rating.average} />
-      ) : (
+    ) : (
       <div></div>
-      );
-      let bt = (show._links.previousepisode) ? (
-        <div className="w-full ">
+    );
+    let bt = show._links.previousepisode ? (
+      <div className="w-7/12 mx-auto my-3">
         <Button
-        name="Latest Episode"
-        to={`/episode/${show._links.previousepisode.href.substring(31)}`}
+          name="Latest Episode"
+          to={`/episode/${show._links.previousepisode.href.substring(31)}`}
         />
-        </div>
-        ) : (
-        <div></div>
-        );
-        let hm_bt = (show.officialSite) ? (
-          <div
-          onClick = {() => open(show.officialSite)}
-          className="w-full "
-          >
-          <Button        
-          name = "Home"
-          />
-          </div>
+      </div>
+    ) : (
+      <div></div>
+    );
+    let hm_bt = show.officialSite ? (
+      <div
+        onClick={() => open(show.officialSite)}
+        className="w-7/12 mx-auto my-3"
+      >
+        <Button name="Home Page" />
+      </div>
+    ) : (
+      <div></div>
+    );
+    let key = ["Type", "Runtime", "Language", "Premiered"];
+    let value = [
+      show.type,
+      show.runtime ? show.runtime : "Specific",
+      show.language,
+      date(show.premiered),
+    ];
+    let info = value.map((elem, i) => (
+      <p className="text-center m-4">
+        <span className="tKey">{key[i]}</span>
+        <span className="tVal bg-pl-1">{elem}</span>
+      </p>
+    ));
+    content = (
+      <div className="h-full bg-pl-1 p-0 w-full">
+        <div className="mx-auto">{bg}</div>
 
-          ) : (
-          <div>No Home Page</div>
-          );
-          let capsule = (text) =>
-          <span className="tMain bg-gray-900 m-1 px-3 rounded-full tracking-wide">
-          {text}
-          </span>
-
-
-          content = (
-            <div className="h-full bg-pl-1 p-0 w-full">
-            {bg}
-            <div className="w-auto relative text-center">
-            <div className="bg-black-t-50 -my-20 absolute w-11/12 rounded-md inset-x-0 mx-auto">
+        <div className="w-auto relative text-center">
+          <div className="bg-black-t-50 -my-20 absolute w-11/12 rounded-md inset-x-0 mx-auto">
             <p className="text-pl-1 font-semibold text-3xl text-center">
-            <span className="tMain">{show.name}</span>
+              <span className="tMain">{show.name}</span>
             </p>
             <div className="text-center">{rat}</div>
 
             <p className="text-center">
-            <span className="font-cairo text-lg text-t-4">Genres : </span>
-            {iter(show.genres)}
-            </p>
-            <p className="text-center">
-            <span className="font-cairo text-lg text-t-4">Type: </span>
-            {capsule(show.type)}
-            </p>
-            <p className="text-center">
-            <span className="font-cairo text-lg text-t-4">Runtime: </span>
-
-            {capsule(show.runtime? show.runtime:"Specific")}
-
-            </p>
-            <p className="text-center">
-            <span className="font-cairo text-lg text-t-4">Language: </span>
-
-            {capsule(show.language)}
-
-            </p>
-            <p className="text-center">
-            <span className="font-cairo text-lg text-t-4">Premiered: </span>
-
-            {capsule(date(show.premiered))}
-
+              <span className="tKey">Genres : </span>
+              {iter(show.genres)}
             </p>
 
-            <span className="tMain bg-gray-900 m-1 px-3 rounded-full tracking-wide">
-            {capsule(show.status)}
-            </span>
-            <div className="text-center relative">
-            {bt}
-            {hm_bt}
+            {info}
+
+            <div className="text-center m-2">
+              {bt}
+              {hm_bt}
             </div>
-
+            <span className="tVal bg-pl-1">{show.status}</span>
             <p className="tCon text-center tracking-wide my-2">
-            {stripHtml(show.summary)}
+              {stripHtml(show.summary)}
             </p>
-            
 
-            <div className="p-3">
-            {castCards}
-            {ssnCards}
-            {galCards}
-            {show.id}
+            <div className="p-3 bg-pl-1">
+              {castCards}
+              {ssnCards}
+              {galCards}
+              {show.id}
             </div>
-            </div>
-            </div>
-            </div>
-            );
-        }
+          </div>
+        </div>
+      </div>
+    );
+  }
 
-        return <div>{content}</div>;
-      }
+  return <div>{content}</div>;
+}
 
+function date(str) {
+  if (!str) {
+    return "Unknown";
+  }
+  let dt = new Date(str);
+  let mon = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "June",
+    "July",
+    "April",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
+  return dt.getDate() + " " + mon[dt.getMonth()] + " " + dt.getFullYear();
+}
+function open(url) {
+  const win = window.open(url, "_blank");
 
+  win.focus();
+}
+function stripHtml(html) {
+  let tmp = document.createElement("DIV");
+  tmp.innerHTML = html;
+  return tmp.textContent || tmp.innerText || "";
+}
 
-      function date(str) {
-        let dt = new Date(str)        
-        let mon = ["Jan","Feb","Mar","Apr","May","June","July","April","Sep","Oct","Nov","Dec"]        
-        return(dt.getDate()+' '+mon[dt.getMonth()]+' '+dt.getFullYear())
-      }
-      function open(url) {
-        const win = window.open(url, "_blank");
-
-        win.focus();
-
-      }
-      function stripHtml(html) {
-        let tmp = document.createElement("DIV");
-        tmp.innerHTML = html;
-        return tmp.textContent || tmp.innerText || "";
-      }
-
-      export default Show;
-        
+export default Show;

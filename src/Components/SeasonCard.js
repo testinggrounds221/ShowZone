@@ -6,7 +6,7 @@ function SeasonCard(props){
 	let ses = props.sn;
 	content =
 		
-			<Link to={`/season/${ses.id}`}>
+			<Link to={`/season/${props.shid}/${ses.id}`}>
 				<div className="px-3 bg-gray-900 py-1 tMain">
 					{/*<img src={`${ses.image.medium}`}></img>*/}
 				Season {ses.number}

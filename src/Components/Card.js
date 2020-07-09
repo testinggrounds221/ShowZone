@@ -3,7 +3,7 @@ import React from 'react'
 
 function Card(props){
 	const imgStyle = {
-		'backgroundImage': `url('${props.img? props.img:'' }')`,
+		backgroundImage: `url('${props.img? props.img:'' }')`,
 		position:'relative',
 		height:'300px',
   		width:'200px'
