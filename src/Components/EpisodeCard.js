@@ -8,11 +8,10 @@ function EpisodeCard(props) {
   content = (
     <Link to={`/episode/${epi.id}`}>
       <div
-        className="tCon w-11/12 h-11/12"
-        style={{ backgroundImage: `url(${epi.image.medium})` }}
+        className="px-3 bg-gray-900 py-1 tMain text-center text-lg"        
       >
-        <p>{epi.number}</p>
-        {epi.name}
+        <p>{epi.number}.{epi.name}</p>
+        
         
       </div>
     </Link>

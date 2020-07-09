@@ -41,7 +41,7 @@ function Season() {
       key.push("End Date");
       val.push(ses.endDate);
     }
-    
+
     let info = val.map((elem, i) => (
       <p className="text-center m-4">
         <span className="tKey">{key[i]}</span>
@@ -50,26 +50,30 @@ function Season() {
     ));
 
     epiCards = req.data.map((el) => (
-      <div key={el.id} className="m-5">
+      <div key={el.id} className=" w-4/5 mx-auto my-4">
         <EpisodeCard ep={el} />
       </div>
     ));
 
     content = (
       <div>
-        {ses.image && <img src={ses.image.medium} className="mx-auto"></img>}
-        {info}
-        {epiCards}
+        {ses.image && ses.image && <img src={ses.image.medium} className="mx-auto"></img>}
+        {!ses.image && <img src={ses.image.medium} className="mx-auto"></img>}
+        <div className="absolute bg-black-t-50 mx-auto inset-x-0 w-11/12 -my-10 rounded-md ">
+          <p className="text-center">
+            <span className="tMain text-pl-1 font-semibold text-3xl">
+              Season {ses.number}
+            </span>
+          </p>
+
+          {info}
+        </div>
+        <div className="absolute my-32 py-10">{epiCards}</div>
       </div>
     );
   }
 
-  return (
-    <div>
-      {content}
-      <p>SeasonP page</p>
-    </div>
-  );
+  return <div>{content}</div>;
 }
 
 export default Season;
