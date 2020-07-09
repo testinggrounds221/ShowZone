@@ -51,7 +51,7 @@ function Season() {
 
     epiCards = req.data.map((el) => (
       <div key={el.id} className=" w-3/5 mx-auto my-4">
-      <EpisodeCard ep={el} />
+      <EpisodeCard ep={el} sesid={id}/>
       </div>
       ));
 //https://raw.githubusercontent.com/testinggrounds221/ShowZone/master/images/undraw_video_files_fu10.png

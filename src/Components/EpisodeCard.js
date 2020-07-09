@@ -6,7 +6,7 @@ function EpisodeCard(props) {
   let content = null;
 
   content = (
-    <Link to={`/episode/${epi.id}`}>
+    <Link to={`/episode/${props.sesid}/${epi.id}`}>
       <div
         className="px-3 bg-gray-900 py-1 tMain text-center text-lg"        
       >

@@ -39,7 +39,7 @@ function GalleryCard(props) {
           src={backGr[0].resolutions.original.url}
           alt="Hey"
           ></img>
-          {props.loc}
+          
           </div>
           );
       }

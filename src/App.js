@@ -50,7 +50,7 @@ function App() {
           <Route path = "/season/:shid/:id">
             <Season />
           </Route>
-          <Route path = "/episode/:id">
+          <Route path = "/episode/:sesid/:id">
             <EpisodePage />
           </Route>
           <Route path = "/srchpg">
