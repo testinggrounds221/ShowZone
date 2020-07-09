@@ -24,7 +24,7 @@ class LoginControl extends React.Component {
     const isLoggedIn = this.state.isLoggedIn;
 
     let content = null;
-    
+
     let stay = (
       <div className="text-white">
         <div>
@@ -33,11 +33,14 @@ class LoginControl extends React.Component {
               id="txtBox"
               type="text"
               className="outline-none text-center font-serif bg-pl-1 rounded-md w-full tCon "
-              placeholder="Search"
+              placeholder="Search Shit"
               autoComplete="off"
             ></input>
-            <div onClick={this.handleLoginClick} className="w-1/4 h-10 bg-pl-4 mt-8 flex justify-evenly mx-auto rounded-md outline-none">
-              <LoginButton  />
+            <div
+              onClick={this.handleLoginClick}
+              className="w-1/4 h-10 bg-pl-4 mt-8 flex justify-evenly mx-auto rounded-md outline-none"
+            >
+              <LoginButton />
             </div>
           </div>
         </div>
@@ -62,9 +65,11 @@ function Results(props) {
   let val = document.getElementById("txtBox").value;
   content = (
     <div>
-      <div className="text-center font-medium text-t-1 text-2xl rounded-full">Shows Matching "{val}"</div>
+      <div className="text-center tKey">
+        Shows Matching "{val}"
+      </div>
       <ShowSearchResults val={val} by="shows" />
-      <div className="text-center">People</div>
+      <div className="text-center tVal">People</div>
       <ShowSearchResults val={val} by="people" />
     </div>
   );
@@ -89,13 +94,13 @@ function BrowseCards(props) {
     82,
     20683,
     124,
-    17861
+    17861,
   ];
-  
-  ids=shuffle(ids)
+
+  ids = shuffle(ids);
   let content = ids.map((id) => (
     <div key={id} className="content-center w-full items-center justify-center">
-      <GalleryCard  id={id} type="banner" for="hmBann"/>
+      <GalleryCard id={id} type="banner" for="hmBann" />
     </div>
   ));
   return <div>{content}</div>;
@@ -127,5 +132,5 @@ function shuffle(array) {
     let j = Math.floor(Math.random() * (i + 1));
     [array[i], array[j]] = [array[j], array[i]];
   }
-  return array
+  return array;
 }

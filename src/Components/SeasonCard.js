@@ -7,7 +7,7 @@ function SeasonCard(props){
 	content =
 		
 			<Link to={`/season/${props.shid}/${ses.id}`}>
-				<div className="px-3 bg-gray-900 py-1 tMain">
+				<div className="px-3 bg-red-700 py-1 tMain">
 					
 				Season {ses.number}
 				</div>

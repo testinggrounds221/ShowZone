@@ -6,7 +6,7 @@ function Button(props){
 	if(props.to)
 	{return(
 			<Link to={props.to? props.to:null}>
-				<div className="bg-red-700 rounded-sm mx-4" onClick={props.clk}>
+				<div className="bg-pl-4 rounded-sm mx-4" onClick={props.clk}>
 					<p className="tMain text-center tracking-wide font-medium text-xl">
 						{props.name}
 					</p>
@@ -15,7 +15,7 @@ function Button(props){
 		)}
 	else{
 		return(
-			<div className="bg-red-700 rounded-sm mx-4" onClick={props.clk}>
+			<div className="bg-pl-4 rounded-sm mx-4" onClick={props.clk}>
 					<p className="tMain text-center tracking-wide font-medium text-xl">
 						{props.name}
 					</p>

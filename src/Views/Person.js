@@ -2,7 +2,7 @@ import React from "react";
 import { useParams } from "react-router";
 import { useAxiosGetJSON, useAxiosGetArray } from "../Hooks/HttpRequests";
 import Loader from "../Components/Loader";
-
+import { dateToStr,dateDiffYear } from "../Hooks/MyHook";
 import Accordion from "@material-ui/core/Accordion";
 import AccordionDetails from "@material-ui/core/AccordionDetails";
 import AccordionSummary from "@material-ui/core/AccordionSummary";
@@ -70,8 +70,8 @@ function Person() {
       key.push("Gender");
     }
     if (per.birthday) {
-      value.push(calDiff(per.birthday, per.deathday));
-      value.push(date(per.birthday));
+      value.push(dateDiffYear(per.birthday, per.deathday));
+      value.push(dateToStr(per.birthday));
 
       key.push("Age");
       key.push("Birthday");
@@ -84,7 +84,7 @@ function Person() {
     ));
     //https://opendoodles.s3-us-west-1.amazonaws.com/loving.png
     content = (
-      <div className="h-full">
+      <div>
         {per.image && <img src={per.image.medium} className="mx-auto"></img>}
         {!per.image && (
           <img
@@ -92,48 +92,23 @@ function Person() {
             className="mx-auto rounded-full h-3/5 w-3/5"
           ></img>
         )}
-
-        <div className="bg-black-t-50 mx-auto w-11/12 text-lg -my-10 z-10 absolute inset-x-0">
-          <p className="text-center">
-            <span className="tMain font-semibold text-3xl text-center">
-              {per.name}
-            </span>
-          </p>
-          {info}
-
-          {crdCards}
+        <div>
+          <div className="bg-black-t-50 mx-auto w-11/12 text-lg -my-10 z-10 absolute inset-x-0">
+            <p className="text-center">
+              <span className="tMain font-semibold text-3xl text-center">
+                {per.name}
+              </span>
+            </p>
+            {info}
+            <div className="mt-5 bg-pl-1 p-3">{crdCards}</div>
+          </div>
         </div>
       </div>
     );
   }
   return <div>{content}</div>;
 
-  function calDiff(s1, s2) {
-    let d1 = new Date(s1);
-    let d2 = s2 ? new Date(s2) : new Date();
-    return Math.floor((d2 - d1) / (1000 * 60 * 60 * 24 * 365));
-  }
-}
-function date(str) {
-  if (!str) {
-    return "Unknown";
-  }
-  let dt = new Date(str);
-  let mon = [
-    "Jan",
-    "Feb",
-    "Mar",
-    "Apr",
-    "May",
-    "June",
-    "July",
-    "April",
-    "Sep",
-    "Oct",
-    "Nov",
-    "Dec",
-  ];
-  return dt.getDate() + " " + mon[dt.getMonth()] + " " + dt.getFullYear();
+  
 }
 
 export default Person;

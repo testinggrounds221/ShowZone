@@ -16,7 +16,8 @@ function Card(props){
 		'top':'0',
 		'position': 'absolute',
 		'zIndex': '10',
-		'paddingTop':'100px'
+		'paddingTop':'100px',
+		'opacity': '0.7'
 	  }
 	return(
 		// bg-pl-2

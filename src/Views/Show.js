@@ -11,7 +11,8 @@ import Button from "../Components/Button";
 import Rating from "../Components/Rating";
 import SeasonCard from "../Components/SeasonCard";
 import GalleryCard from "../Components/GalleryCard";
-
+import { stripHtml, dateToStr, openNewTab } from "../Hooks/MyHook";
+import { Link } from "react-router-dom";
 //http://api.tvmaze.com/shows/10
 //http://api.tvmaze.com/shows/${id}?embed[]=seasons&embed[]=cast
 function Show() {
@@ -54,7 +55,9 @@ function Show() {
             <AccordionDetails key={elem.person.id}>
               <div key={elem.person.id} className="mx-auto z-50">
                 <Card
-                  name={elem.person.name}
+                  name={`${elem.person.name} 
+                  as
+                  ${elem.character.name}`}
                   link={`/person/${elem.person.id}`}
                   img={elem.person.image ? elem.person.image.medium : null}
                 />
@@ -73,8 +76,11 @@ function Show() {
           </AccordionSummary>
           {show._embedded.seasons.map((el) => (
             <AccordionDetails key={el.id}>
-              <div key={el.id} className="mx-auto">
-                <SeasonCard sn={el} shid={id} />
+              <div key={el.id} className="mx-auto px-3 py-1 w-2/3">
+                <Button
+                  name={`Season ${el.number}`}
+                  to={`/season/${id}/${el.id}`}
+                />
               </div>
             </AccordionDetails>
           ))}
@@ -134,7 +140,7 @@ function Show() {
     );
     let hm_bt = show.officialSite ? (
       <div
-        onClick={() => open(show.officialSite)}
+        onClick={() => openNewTab(show.officialSite)}
         className="w-7/12 mx-auto my-3 cursor-pointer"
       >
         <Button name="Home Page" />
@@ -147,7 +153,7 @@ function Show() {
       show.type,
       show.runtime ? show.runtime : "Specific",
       show.language,
-      date(show.premiered),
+      dateToStr(show.premiered),
     ];
     let info = value.map((elem, i) => (
       <p className="text-center m-4">
@@ -183,7 +189,7 @@ function Show() {
               {stripHtml(show.summary)}
             </p>
 
-            <div className="p-3 bg-pl-1">
+            <div className="p-3 bg-pl-1 space-y-3">
               {castCards}
               {ssnCards}
               {galCards}
@@ -196,38 +202,6 @@ function Show() {
   }
 
   return <div>{content}</div>;
-}
-
-function date(str) {
-  if (!str) {
-    return "Unknown";
-  }
-  let dt = new Date(str);
-  let mon = [
-    "Jan",
-    "Feb",
-    "Mar",
-    "Apr",
-    "May",
-    "June",
-    "July",
-    "April",
-    "Sep",
-    "Oct",
-    "Nov",
-    "Dec",
-  ];
-  return dt.getDate() + " " + mon[dt.getMonth()] + " " + dt.getFullYear();
-}
-function open(url) {
-  const win = window.open(url, "_blank");
-
-  win.focus();
-}
-function stripHtml(html) {
-  let tmp = document.createElement("DIV");
-  tmp.innerHTML = html;
-  return tmp.textContent || tmp.innerText || "";
 }
 
 export default Show;
