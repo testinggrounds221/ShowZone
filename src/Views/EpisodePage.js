@@ -61,14 +61,14 @@ function EpisodePage() {
         return el;
       }
     });
-    console.log(near);
+    
     let nb,
       pb = null;
-    if (near[0].number) {
+    if (near[0]) {
       if (near[0].number === ep.number - 1) {
         pb = (
           <Button
-            name="Previous Episode"
+            name="Previous"
             to={`/episode/${sesid}/${near[0].id}`}
           ></Button>
         );
@@ -76,7 +76,7 @@ function EpisodePage() {
       if (near[0].number === ep.number + 1) {
         nb = (
           <Button
-            name="Next Episode"
+            name="Next"
             to={`/episode/${sesid}/${near[0].id}`}
           ></Button>
         );
@@ -85,7 +85,7 @@ function EpisodePage() {
     if (near[1] && near[1].number === ep.number + 1) {
       nb = (
         <Button
-          name="Next Episode"
+          name="Next"
           to={`/episode/${sesid}/${near[1].id}`}
         ></Button>
       );
@@ -113,11 +113,12 @@ function EpisodePage() {
             </span>
           </p>
           {info}
-          <p className="tCon text-center">{stripHtml(ep.summary)}</p>
-          <div className="w-9/12 mx-auto space-y-2 mt-4">
-            <div>{nb}</div>
-            <div>{pb}</div>
+          <div className="flex flex-wrap justify-between mb-5">
+            <div className="w-2/5">{pb}</div>
+            <div className="w-2/5">{nb}</div>
           </div>
+
+          <p className="tCon text-center mb-5 px-1">{stripHtml(ep.summary)}</p>
         </div>
       </div>
     );

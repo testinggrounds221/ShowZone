@@ -4,6 +4,7 @@ import { useAxiosGetArray } from "../Hooks/HttpRequests";
 import Loader from "../Components/Loader";
 import EpisodeCard from "../Components/EpisodeCard";
 import Button from "../Components/Button";
+
 function Season() {
   let { id, shid } = useParams();
   const url = `http://api.tvmaze.com/seasons/${id}/episodes`;
@@ -29,18 +30,27 @@ function Season() {
         return el;
       }
     })[0];
+    
     let nb,
       pb = null;
-    let nei = r2.data.filter((el) => {
-      if (el.number === ses.number + 1 || el.number === ses.number - 1)
-        return el;
+    let nei = r2.data.filter((elem) => {
+      if (elem.number === ses.number + 1 || elem.number === ses.number - 1)
+        return elem;
     });
 
     if (nei[0].number) {
-      
-      // nb = (
-      //   <Button name={`Season ${el.number}`} to={`/season/${id}/${el.id}`} />
-      // );
+      if (nei[0].number === ses.number - 1) {
+        pb = <Button name="Previous" to={`/season/${shid}/${nei[0].id}`} />;
+      }
+      if (nei[0].number === ses.number + 1) {
+        nb = <Button name="Next" to={`/season/${shid}/${nei[0].id}`} />;
+      }
+    }
+
+    if (nei[1]) {
+      if (nei[1].number === ses.number + 1) {
+        nb = <Button name="Next" to={`/season/${shid}/${nei[1].id}`} />;
+      }
     }
 
     if (ses.episodeOrder) {
@@ -80,16 +90,19 @@ function Season() {
           ></img>
         )}
 
-        <div className="absolute bg-black-t-50 mx-auto inset-x-0 w-11/12 -my-10 rounded-md ">
+        <div className="absolute bg-black-t-50 mx-auto inset-x-0 w-11/12 -my-10 rounded-md pb-3">
           <p className="text-center">
             <span className="tMain text-pl-1 font-semibold text-3xl">
               Season {ses.number}
             </span>
           </p>
-
           {info}
+          <div className="flex flex-wrap justify-between">
+            <div className="w-2/5">{pb}</div>
+            <div className="w-2/5">{nb}</div>
+          </div>
         </div>
-        <div className="my-32 py-10 mx-auto">{epiCards}</div>
+        <div className=" mt-32 py-16 mx-auto">{epiCards}</div>
       </div>
     );
   }

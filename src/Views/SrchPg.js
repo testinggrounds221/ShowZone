@@ -65,9 +65,7 @@ function Results(props) {
   let val = document.getElementById("txtBox").value;
   content = (
     <div>
-      <div className="text-center tKey">
-        Shows Matching "{val}"
-      </div>
+      <div className="text-center tKey">Shows Matching "{val}"</div>
       <ShowSearchResults val={val} by="shows" />
       <div className="text-center tVal">People</div>
       <ShowSearchResults val={val} by="people" />

@@ -185,7 +185,7 @@ function Show() {
               {hm_bt}
             </div>
             <span className="tVal bg-pl-1">{show.status}</span>
-            <p className="tCon text-center tracking-wide my-2">
+            <p className="tCon text-center tracking-wide my-2 px-1">
               {stripHtml(show.summary)}
             </p>
 
