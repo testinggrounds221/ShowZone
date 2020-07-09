@@ -38,7 +38,7 @@ function Person() {
       <ThemeProvider theme={theme}>
         <Accordion>
           <AccordionSummary className="tMain text-lg">
-            Cast Credits{" "}
+            Starred In
           </AccordionSummary>
           {crd.map((shw) => (
             <AccordionDetails>

@@ -74,7 +74,7 @@ function Show() {
           {show._embedded.seasons.map((el) => (
             <AccordionDetails key={el.id}>
               <div key={el.id} className="mx-auto">
-                <SeasonCard sn={el} shid={id}/>
+                <SeasonCard sn={el} shid={id} />
               </div>
             </AccordionDetails>
           ))}
@@ -90,7 +90,7 @@ function Show() {
             <span className="tMain text-lg">{nm[i]}</span>
           </AccordionSummary>
           <AccordionDetails>
-            <div>
+            <div className="mx-auto">
               <GalleryCard type={type.toLowerCase()} id={id} for="shwGal" />
             </div>
           </AccordionDetails>
@@ -109,11 +109,24 @@ function Show() {
     ) : (
       <div></div>
     );
+    let len = show._embedded.seasons.length;
     let bt = show._links.previousepisode ? (
       <div className="w-7/12 mx-auto my-3">
         <Button
           name="Latest Episode"
-          to={`/episode/${show._links.previousepisode.href.substring(31)}`}
+          to={`/episode/${
+            show._embedded.seasons[len - 1].id
+          }/${show._links.previousepisode.href.substring(31)}`}
+        />
+      </div>
+    ) : (
+      <div></div>
+    );
+    let sbt = show._embedded.seasons[len - 1] ? (
+      <div className="w-7/12 mx-auto my-3">
+        <Button
+          name="Latest Season"
+          to={`/season/${id}/${show._embedded.seasons[len - 1].id}`}
         />
       </div>
     ) : (
@@ -122,7 +135,7 @@ function Show() {
     let hm_bt = show.officialSite ? (
       <div
         onClick={() => open(show.officialSite)}
-        className="w-7/12 mx-auto my-3"
+        className="w-7/12 mx-auto my-3 cursor-pointer"
       >
         <Button name="Home Page" />
       </div>
@@ -162,6 +175,7 @@ function Show() {
 
             <div className="text-center m-2">
               {bt}
+              {sbt}
               {hm_bt}
             </div>
             <span className="tVal bg-pl-1">{show.status}</span>
