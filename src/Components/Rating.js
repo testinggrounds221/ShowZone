@@ -4,14 +4,14 @@ import { faStar, faStarHalf } from "@fortawesome/free-solid-svg-icons";
 
 function Rating(props) {
   let content = null;
-  let full = Math.floor(props.val/2);
+  let full = Math.floor(props.val / 2);
   let iter = (arr) =>
     arr.map((el) => (
       <span>
         <FontAwesomeIcon icon={el.name} color={el.color} size={el.size} />
       </span>
     ));
-  
+
   let str = [];
   let i = 0;
   for (i = 0; i < full; i++) {
@@ -28,12 +28,17 @@ function Rating(props) {
   }
   let j = 0;
   for (j = 0; j < 5; j++) {
-    if ((j===0) || (j===4)) str[j].size = "x";
-	else if((j===1) || (j===3)) str[j].size = "2x";
-	else str[j].size = "3x";
+    if (j === 0 || j === 4) str[j].size = "x";
+    else if (j === 1 || j === 3) str[j].size = "2x";
+    else str[j].size = "3x";
   }
-
-  content = <div>{iter(str)}</div>;
+  let per = <span className="tVal bg-pl-1 w-auto">{props.val}</span>;
+  content = (
+    <div>
+      {iter(str)}
+      <p>{per}</p>
+    </div>
+  );
   return <div>{content}</div>;
 }
 
