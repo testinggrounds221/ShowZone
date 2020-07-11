@@ -26,7 +26,7 @@ function App() {
       <Header />  
         <div>
         <Switch>
-          <Route exact path = "/">          
+          <Route path = "/">          
            <Home />
           </Route>
           <Route path = "/about">
@@ -53,7 +53,7 @@ function App() {
           <Route path = "/episode/:sesid/:id">
             <EpisodePage />
           </Route>
-          <Route path = "/srchpg">
+          <Route path = "/srchpg/:val">
             <LoginControl />
           </Route>
         </Switch>

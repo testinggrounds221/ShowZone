@@ -27,7 +27,7 @@ function ShowSearchResults(props){
 
     if(req.data && by==="shows"){
        content  = req.data.map((show) =>
-        <div key = {show.id} className="content-center w-full h-full">				
+        <div key = {show.id} className="mx-auto">				
             {/* <ShowCard product = {show} /> */}
             <Card name={show.show.name} link={`/show/${show.show.id}`} img={show.show.image? show.show.image.medium:null } />
             
