@@ -61,14 +61,14 @@ function EpisodePage() {
         return el;
       }
     });
-    
+//&#x21E6 &#x21E8
     let nb,
       pb = null;
     if (near[0]) {
       if (near[0].number === ep.number - 1) {
         pb = (
           <Button
-            name="Previous"
+            name="&#x21E6; Prev"
             to={`/episode/${sesid}/${near[0].id}`}
           ></Button>
         );
@@ -76,7 +76,7 @@ function EpisodePage() {
       if (near[0].number === ep.number + 1) {
         nb = (
           <Button
-            name="Next"
+            name="Next &#x21E8;"
             to={`/episode/${sesid}/${near[0].id}`}
           ></Button>
         );
@@ -85,7 +85,7 @@ function EpisodePage() {
     if (near[1] && near[1].number === ep.number + 1) {
       nb = (
         <Button
-          name="Next"
+          name="Next &#x21E8;"
           to={`/episode/${sesid}/${near[1].id}`}
         ></Button>
       );

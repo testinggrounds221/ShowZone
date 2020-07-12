@@ -1,8 +1,7 @@
 import React from "react";
-
 import ShowSearchResults from "../Components/ShowSearchResults";
-
 import GalleryCard from "../Components/GalleryCard";
+
 class LoginControl extends React.Component {
   constructor(props) {
     super(props);
@@ -30,7 +29,7 @@ class LoginControl extends React.Component {
         <div>
           <div className="bg-pl-1 py-10">
             <input
-              id="txtBox"
+              id="txtBox2"
               type="text"
               className="outline-none text-center font-serif bg-pl-1 rounded-md w-full tCon "
               placeholder="Search Shit"
@@ -62,10 +61,12 @@ class LoginControl extends React.Component {
 function Results(props) {
   // Show Sreach results
   let content = null;
-  let val = document.getElementById("txtBox").value;
+
+  let val = props.val;
+
   content = (
     <div>
-      <div className="text-center tKey">Shows Matching "{val}"</div>
+      <div className="text-center tKey">Shows Matching {val}</div>
       <ShowSearchResults val={val} by="shows" />
       <div className="text-center tVal">People</div>
       <ShowSearchResults val={val} by="people" />

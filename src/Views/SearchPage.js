@@ -1,39 +1,31 @@
-import React from 'react';
-import SearchBar from '../Components/SearchBar' 
-import { useParams } from 'react-router-dom';
-function SearchPage(){
-	let { by } = useParams()
-	// console.log(by);
-	
-	let content = null
-	if(by === "shows"){
-		// console.log('Shows')
-		content = 
-			<div>
-				<h1>Search By Shows</h1>
-				<div>
-					<SearchBar by="shows" />
-				</div>
-			</div>
-	}
-	if(by === "people"){
-		// console.log('People')
-		content = 
-			<div>
-				<h1>Search By People</h1>
-				<div>
-					<SearchBar by="people"/>
-				</div>
-			</div>
-	}
+import React from "react";
+import ShowSearchResults from "../Components/ShowSearchResults";
+import { useParams } from "react-router-dom";
+import Button from "../Components/Button";
+function SearchPage(props) {
+  let content = null;
+  let { val } = useParams();
 
-	return(
-		<div>
-			{content}
-		</div>
-		
-	)
+  content = (
+    <div className="">
+      <div>
+        <div className="tMain text-center text-xl sticky top-0 z-10 bg-black-t-15 mx-auto">
+          Shows Matching "{val}"
+        </div>
+        <ShowSearchResults val={val} by="shows" />
+      </div>
+      
 
+      <div>
+        <div className="tMain text-center text-xl sticky top-0 z-10 bg-black-t-15 mx-auto">
+          People Matching "{val}"
+        </div>
+        <ShowSearchResults val={val} by="people" />
+      </div>
+    </div>
+    // <div className="text-white">{val} Hey</div>
+  );
+  return <div>{content}</div>;
 }
 
-export default SearchPage
+export default SearchPage;
