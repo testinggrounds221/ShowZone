@@ -40,16 +40,16 @@ function Season() {
 
     if (nei[0].number) {
       if (nei[0].number === ses.number - 1) {
-        pb = <Button name="Previous" to={`/season/${shid}/${nei[0].id}`} />;
+        pb = <Button name="&#x21E6; Prev" to={`/season/${shid}/${nei[0].id}`} />;
       }
       if (nei[0].number === ses.number + 1) {
-        nb = <Button name="Next" to={`/season/${shid}/${nei[0].id}`} />;
+        nb = <Button name="Next &#x21E8;" to={`/season/${shid}/${nei[0].id}`} />;
       }
     }
-
+//&#x21E6 &#x21E8   
     if (nei[1]) {
       if (nei[1].number === ses.number + 1) {
-        nb = <Button name="Next" to={`/season/${shid}/${nei[1].id}`} />;
+        nb = <Button name="Next &#x21E8;" to={`/season/${shid}/${nei[1].id}`} />;
       }
     }
 
@@ -97,7 +97,7 @@ function Season() {
             </span>
           </p>
           {info}
-          <div className="flex flex-wrap justify-between">
+          <div className="flex flex-wrap justify-between ">
             <div className="w-2/5">{pb}</div>
             <div className="w-2/5">{nb}</div>
           </div>

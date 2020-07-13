@@ -6,7 +6,7 @@ function Button(props) {
     return (
       <Link to={props.to}>
         <div className="bg-pl-4 rounded-md mx-4" onClick={props.clk}>
-          <p className="tMain text-center tracking-wide font-medium text-xl">
+          <p className="tMain text-center tracking-wide font-medium text-xl justify-center">
             {props.name}
           </p>
         </div>
@@ -14,7 +14,7 @@ function Button(props) {
     );
   } else {
     return (
-      <div className="bg-pl-4 rounded-md mx-4" onClick={props.clk}>
+      <div className="bg-pl-4 rounded-md mx-4 cursor-pointer" onClick={props.clk}>
         <p className="tMain text-center tracking-wide font-medium text-xl">
           {props.name}
         </p>

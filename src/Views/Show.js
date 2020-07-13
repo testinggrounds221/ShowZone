@@ -53,7 +53,8 @@ function Show() {
           </AccordionSummary>
           {show._embedded.cast.map((elem) => (
             <AccordionDetails key={elem.person.id}>
-              <div key={elem.person.id} className="mx-auto z-50">
+            <div className="mx-auto shadow-xl w-10/12">
+              <div key={elem.person.id} className="text-center text-xl sticky top-0 z-20 mx-auto">
                 <Card
                   name={`${elem.person.name} 
                   as
@@ -61,6 +62,7 @@ function Show() {
                   link={`/person/${elem.person.id}`}
                   img={elem.person.image ? elem.person.image.medium : null}
                 />
+              </div>
               </div>
             </AccordionDetails>
           ))}

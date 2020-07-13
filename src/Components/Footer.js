@@ -1,17 +1,42 @@
 import React from "react";
-// import Button from './Button'
+import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
-import Navigation from "./Navigation";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faHome,
+  faAngleDoubleRight,
+  faAngleDoubleLeft,
+} from "@fortawesome/free-solid-svg-icons";
 
 function Footer() {
-  // let history = useHistory()
+  let history = useHistory();
   // <Button name="Back" clk={() => history.goBack()} />
   // <div >&copy; Copyright 2020</div>
   return (
-    <div class="bg-gray-400 pt-16">
-      <div class="fixed bg-gray-600">
-        Fixed child
-        <div class="absolute top-0 right-0 bg-gray-800">Absolute child</div>
+    <div class="bg-gray-400">
+      <div className=" w-full bg-black-t-50 rounded-md fixed bottom-0 z-30">
+        <div className="w-full mx-auto flex justify-between">
+          <div onClick={() => history.goBack()} className="cursor-pointer mx-5">
+            <FontAwesomeIcon icon={faAngleDoubleLeft} color="red" size={"2x"} />
+          </div>
+          <Link to="/">
+            <div className="cursor-pointer">
+              <FontAwesomeIcon icon={faHome} color="white" size={"2x"} />
+            </div>
+          </Link>
+
+          <div
+            onClick={() => history.goForward()}
+            className="cursor-pointer mx-5"
+          >
+            <FontAwesomeIcon
+              icon={faAngleDoubleRight}
+              color="red"
+              size={"2x"}
+            />
+          </div>
+        </div>
       </div>
     </div>
   );

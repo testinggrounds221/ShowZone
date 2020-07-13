@@ -1,9 +1,10 @@
 import React from "react";
 import LoginControl from "./SrchPg";
-import { Link, useHistory,withRouter } from "react-router-dom";
+import { Link, useHistory, withRouter } from "react-router-dom";
 import Button from "../Components/Button";
 import GalleryCard from "../Components/GalleryCard";
 import ShowSearchResults from "../Components/ShowSearchResults";
+import SearchPage from "./SearchPage";
 // className="w-1/4 h-10 bg-pl-4 mt-8 flex justify-evenly mx-auto rounded-md outline-none" Button
 class Home extends React.Component {
   // let his = useHistory()
@@ -21,6 +22,7 @@ class Home extends React.Component {
   handleResetClick() {
     this.setState({ showResults: false });
   }
+
   render() {
     const show = this.state.showResults;
     let content = null;
@@ -32,38 +34,36 @@ class Home extends React.Component {
               id="txtBox"
               type="text"
               className="outline-none text-center font-serif bg-pl-1 rounded-md w-full tCon "
-              placeholder="Search Shit"
+              placeholder="Search People and Shows"
               autoComplete="off"
             ></input>
-            <div onClick={this.srch}>
-              <Button name="GO !!!!!!" />
-            </div>
-            <div onClick={this.reset}>
-              <Button name="Reset" />
+            <div
+              onClick={this.srch}
+              className="w-1/4 bg-pl-4 mt-8 flex justify-center text-center mx-auto rounded-md outline-none cursor-pointer"
+            >
+              <Button name="GO" />
             </div>
           </div>
         </div>
       </div>
     );
     if (show) {
-      this.props.history.push(`/${document.getElementById("txtBox").value}`)
-      content = (
+      let val = document.getElementById("txtBox").value;
+      if (!val) {
+        content = (
+          <div>
+            <div className="mx-auto  font-alegra-sc text-5xl text-center text-pl-4">
+              Enter Text To Search
+            </div>
 
-        <div>
-          {document.getElementById("txtBox").value}
-          <div className="text-center tKey"></div>
-          <ShowSearchResults
-            val={document.getElementById("txtBox").value}
-            by="shows"
-          />
-          <div className="text-center tVal">People</div>
-          <ShowSearchResults
-            val={document.getElementById("txtBox").value}
-            by="people"
-          />
-          Show Results for VAL
-        </div>
-      );
+            <div onClick={this.reset} className="cursor-pointer">
+              <Button name="Back To Browsing !" />
+            </div>
+          </div>
+        );
+      } else {
+        this.props.history.push(`/searchpage/${val}`);
+      }
     } else content = BrowseCards();
 
     return (
@@ -104,47 +104,6 @@ function BrowseCards(props) {
   ));
   return <div>{content}</div>;
 }
-// 	function rtSrch(){
-//   	let val = document.getElementById("txtBox").value;
-// 	console.log(val);
-// 	// his.push(`/srchpg/${val}`)
-
-//   	// c2 = <ShowSearchResults by={sby} qr={val} />
-// }
-// 	let stay = (
-//       <div className="text-white">
-//         <div>
-//           <div className="bg-pl-1 py-10">
-//             <input
-//               id="txtBox"
-//               type="text"
-//               className="outline-none text-center font-serif bg-pl-1 rounded-md w-full tCon "
-//               placeholder="Search Shit"
-//               autoComplete="off"
-//             ></input>
-//             <div
-//               onClick={rtSrch}
-//               className="w-1/4 h-10 bg-pl-4 mt-8 flex justify-evenly mx-auto rounded-md outline-none"
-//             >
-//               <Button name="Click to search shit" />
-//             </div>
-//           </div>
-//         </div>
-//       </div>
-//     );
-// 	return(
-// 		<div className="bg-pl-1">
-// 			{stay}
-// 			<div>
-//       <div className="text-center tKey">Shows Matching "{val}"</div>
-//       <ShowSearchResults val={val} by="shows" />
-//       <div className="text-center tVal">People</div>
-//       <ShowSearchResults val={val} by="people" />
-//     </div>
-
-// 		</div>
-// 	)
-
 export default withRouter(Home);
 function shuffle(array) {
   for (let i = array.length - 1; i > 0; i--) {
