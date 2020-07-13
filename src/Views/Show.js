@@ -36,7 +36,7 @@ function Show() {
 
   if (req.data) {
     let show = req.data[0];
-    
+
     let lc = null;
     try {
       lc = show.image.medium;
@@ -50,7 +50,6 @@ function Show() {
         <Accordion>
           <AccordionSummary>
             <span className=" font-f1 text-xl tracking-wide font-hairline">
-              {" "}
               C<span className="text-sm font-hairline">AST</span>
             </span>
           </AccordionSummary>
@@ -127,8 +126,11 @@ function Show() {
     ));
 
     let iter = (arr) =>
-      arr.map((el,i) => (
-        <span className="tMain bg-pl-1 text-xl mx-2 px-3 rounded-lg tracking-wide inline-block m-1" key={i}>
+      arr.map((el, i) => (
+        <span
+          className="tMain bg-pl-1 text-xl mx-2 px-3 rounded-lg tracking-wide inline-block m-1"
+          key={i}
+        >
           {el}
         </span>
       ));

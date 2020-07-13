@@ -33,7 +33,7 @@ function EpisodePage() {
     }
     if (ep.number) {
       value.push(ep.number);
-      key.push("Number");
+      key.push("Episode Number");
     }
     if (ep.runtime) {
       value.push(ep.runtime);
