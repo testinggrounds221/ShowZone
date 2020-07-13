@@ -6,10 +6,10 @@ import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 import { useParams } from "react-router";
 import Loader from "../Components/Loader";
 import { useAxiosGetJSON } from "../Hooks/HttpRequests";
-import Card from "../Components/Card";
+
 import Button from "../Components/Button";
 import Rating from "../Components/Rating";
-import SeasonCard from "../Components/SeasonCard";
+
 import GalleryCard from "../Components/GalleryCard";
 import { stripHtml, dateToStr, openNewTab } from "../Hooks/MyHook";
 import { Link } from "react-router-dom";
@@ -36,7 +36,7 @@ function Show() {
 
   if (req.data) {
     let show = req.data[0];
-    let castCards = null;
+    
     let lc = null;
     try {
       lc = show.image.medium;
@@ -45,27 +45,44 @@ function Show() {
     }
     let bg = <GalleryCard id={id} for="shwBack" loc={lc} />;
 
-    castCards = (
+    let inCast = (
       <ThemeProvider theme={theme}>
         <Accordion>
           <AccordionSummary>
-            <span className="tMain text-lg"> Cast </span>
+            <span className=" font-f1 text-xl tracking-wide font-hairline">
+              {" "}
+              C<span className="text-sm font-hairline">AST</span>
+            </span>
           </AccordionSummary>
-          {show._embedded.cast.map((elem) => (
-            <AccordionDetails key={elem.person.id}>
-            <div className="mx-auto shadow-xl w-10/12">
-              <div key={elem.person.id} className="text-center text-xl sticky top-0 z-20 mx-auto">
-                <Card
-                  name={`${elem.person.name} 
-                  as
-                  ${elem.character.name}`}
-                  link={`/person/${elem.person.id}`}
-                  img={elem.person.image ? elem.person.image.medium : null}
-                />
-              </div>
-              </div>
-            </AccordionDetails>
-          ))}
+
+          <AccordionDetails>
+            <div
+              style={{ whiteSpace: "nowrap", overflow: "auto" }}
+              className="inline-block"
+            >
+              {show._embedded.cast.map((elem) => (
+                <Link to={`/person/${elem.person.id}`} key={elem.person.id}>
+                  <div className="inline-block mx-2 my-auto shadow-2xl font-head text-lg">
+                    <img
+                      className="mx-auto"
+                      src={
+                        elem.person.image
+                          ? elem.person.image.medium
+                          : "https://raw.githubusercontent.com/testinggrounds221/ShowZone/master/i/ques.png"
+                      }
+                      alt="Try later"
+                    ></img>
+                    <div>
+                      <p>{elem.person.name}</p>
+                      <p>As</p>
+
+                      <p className="justify-center">{elem.character.name}</p>
+                    </div>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </AccordionDetails>
         </Accordion>
       </ThemeProvider>
     );
@@ -74,7 +91,10 @@ function Show() {
       <ThemeProvider theme={theme}>
         <Accordion TransitionProps={{ unmountOnExit: true }}>
           <AccordionSummary>
-            <span className="tMain text-lg">Seasons</span>
+            <span className=" font-f1 text-xl tracking-wide font-hairline">
+              {" "}
+              S<span className="text-sm font-hairline">EASONS</span>
+            </span>
           </AccordionSummary>
           {show._embedded.seasons.map((el) => (
             <AccordionDetails key={el.id}>
@@ -92,7 +112,7 @@ function Show() {
     let nm = ["Posters", "Wallpapers", "Banners", "Typographies"];
     let types = ["Poster", "background", "banner", "typography"];
     let galCards = types.map((type, i) => (
-      <ThemeProvider theme={theme}>
+      <ThemeProvider theme={theme} key={i}>
         <Accordion>
           <AccordionSummary aria-controls="panel1a-content">
             <span className="tMain text-lg">{nm[i]}</span>
@@ -107,8 +127,8 @@ function Show() {
     ));
 
     let iter = (arr) =>
-      arr.map((el) => (
-        <span className="tMain bg-pl-1 text-xl mx-2 px-3 rounded-lg tracking-wide inline-block m-1">
+      arr.map((el,i) => (
+        <span className="tMain bg-pl-1 text-xl mx-2 px-3 rounded-lg tracking-wide inline-block m-1" key={i}>
           {el}
         </span>
       ));
@@ -158,7 +178,7 @@ function Show() {
       dateToStr(show.premiered),
     ];
     let info = value.map((elem, i) => (
-      <p className="text-center m-4">
+      <p className="text-center m-4" key={i}>
         <span className="tKey">{key[i]}</span>
         <span className="tVal bg-pl-1">{elem}</span>
       </p>
@@ -172,6 +192,7 @@ function Show() {
             <p className="text-pl-1 font-semibold text-3xl text-center">
               <span className="tMain">{show.name}</span>
             </p>
+
             <div className="text-center">{rat}</div>
 
             <p className="text-center">
@@ -192,7 +213,7 @@ function Show() {
             </p>
 
             <div className="p-3 bg-pl-1 space-y-3">
-              {castCards}
+              {inCast}
               {ssnCards}
               {galCards}
               {show.id}

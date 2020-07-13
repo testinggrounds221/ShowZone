@@ -1,7 +1,7 @@
 import React from "react";
 import ShowSearchResults from "../Components/ShowSearchResults";
 import { useParams } from "react-router-dom";
-import Button from "../Components/Button";
+
 function SearchPage(props) {
   let content = null;
   let { val } = useParams();

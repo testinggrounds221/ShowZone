@@ -2,7 +2,7 @@ import React from "react";
 import { useParams } from "react-router";
 import { useAxiosGetJSON, useAxiosGetArray } from "../Hooks/HttpRequests";
 import Loader from "../Components/Loader";
-import { dateToStr,dateDiffYear } from "../Hooks/MyHook";
+import { dateToStr, dateDiffYear } from "../Hooks/MyHook";
 import Accordion from "@material-ui/core/Accordion";
 import AccordionDetails from "@material-ui/core/AccordionDetails";
 import AccordionSummary from "@material-ui/core/AccordionSummary";
@@ -85,11 +85,14 @@ function Person() {
     //https://opendoodles.s3-us-west-1.amazonaws.com/loving.png
     content = (
       <div>
-        {per.image && <img src={per.image.medium} className="mx-auto"></img>}
+        {per.image && (
+          <img src={per.image.medium} className="mx-auto" alt="TryLater"></img>
+        )}
         {!per.image && (
           <img
             src="https://raw.githubusercontent.com/testinggrounds221/ShowZone/master/i/per.svg"
             className="mx-auto rounded-full h-3/5 w-3/5"
+            alt="TryLater"
           ></img>
         )}
         <div>
@@ -107,8 +110,6 @@ function Person() {
     );
   }
   return <div>{content}</div>;
-
-  
 }
 
 export default Person;

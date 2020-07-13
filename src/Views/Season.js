@@ -26,30 +26,38 @@ function Season() {
     let key = [];
     let val = [];
     let ses = r2.data.filter((el) => {
-      if (el.id == id) {
+      if (el.id === id) {
         return el;
       }
+      
     })[0];
-    
+
     let nb,
       pb = null;
     let nei = r2.data.filter((elem) => {
-      if (elem.number === ses.number + 1 || elem.number === ses.number - 1)
+      if (elem.number && (elem.number === ses.number + 1 || elem.number === ses.number - 1))
         return elem;
+      return null;
     });
 
     if (nei[0].number) {
       if (nei[0].number === ses.number - 1) {
-        pb = <Button name="&#x21E6; Prev" to={`/season/${shid}/${nei[0].id}`} />;
+        pb = (
+          <Button name="&#x21E6; Prev" to={`/season/${shid}/${nei[0].id}`} />
+        );
       }
       if (nei[0].number === ses.number + 1) {
-        nb = <Button name="Next &#x21E8;" to={`/season/${shid}/${nei[0].id}`} />;
+        nb = (
+          <Button name="Next &#x21E8;" to={`/season/${shid}/${nei[0].id}`} />
+        );
       }
     }
-//&#x21E6 &#x21E8   
+    //&#x21E6 &#x21E8
     if (nei[1]) {
       if (nei[1].number === ses.number + 1) {
-        nb = <Button name="Next &#x21E8;" to={`/season/${shid}/${nei[1].id}`} />;
+        nb = (
+          <Button name="Next &#x21E8;" to={`/season/${shid}/${nei[1].id}`} />
+        );
       }
     }
 
@@ -82,11 +90,14 @@ function Season() {
 
     content = (
       <div>
-        {ses.image && <img src={ses.image.medium} className="mx-auto"></img>}
+        {ses.image && (
+          <img src={ses.image.medium} className="mx-auto" alt="Try later"></img>
+        )}
         {!ses.image && (
           <img
             src="https://raw.githubusercontent.com/testinggrounds221/ShowZone/master/i/ses.svg"
             className="mx-auto w-2/3"
+            alt="Try later"
           ></img>
         )}
 

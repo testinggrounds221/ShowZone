@@ -3,7 +3,7 @@ import { useParams } from "react-router";
 import { useAxiosGetJSON, useAxiosGetArray } from "../Hooks/HttpRequests";
 import Loader from "../Components/Loader";
 import Button from "../Components/Button";
-import ImageLoader from "../Components/ImageLoader";
+
 function EpisodePage() {
   let { sesid, id } = useParams();
 
@@ -44,24 +44,19 @@ function EpisodePage() {
       key.push("Air Date");
     }
     let info = value.map((elem, i) => (
-      <p className="text-center m-4">
+      <p className="text-center m-4" key={i}>
         <span className="tKey">{key[i]}</span>
         <span className="tVal bg-pl-1">{elem}</span>
       </p>
     ));
-    let lc = null;
-    try {
-      lc = ep.image.medium;
-    } catch {
-      lc = "noImg";
-    }
 
     let near = r2.data.filter((el) => {
       if (el.number === ep.number + 1 || el.number === ep.number - 1) {
         return el;
       }
+      return null;
     });
-//&#x21E6 &#x21E8
+    //&#x21E6 &#x21E8
     let nb,
       pb = null;
     if (near[0]) {
@@ -97,12 +92,14 @@ function EpisodePage() {
           <img
             src="https://raw.githubusercontent.com/testinggrounds221/ShowZone/master/i/em.svg"
             className="mx-auto w-4/5"
+            alt="TryLater"
           ></img>
         )}
         {ep.image && (
           <img
             src={ep.image.medium}
             className="mx-auto w-3/5 h-auto object-cover"
+            alt="TryLater"
           ></img>
         )}
 

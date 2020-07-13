@@ -25,14 +25,19 @@ function GalleryCard(props) {
       if (backGr.length === 0) {
         return (
           <div>
-            {props.loc == "noImg" && (
+            {props.loc === "noImg" && (
               <img
                 src="https://raw.githubusercontent.com/testinggrounds221/ShowZone/master/i/mv.svg"
                 className="mx-auto"
+                alt="No Background Retry Later"
               ></img>
             )}
             {props.loc !== "noImg" && (
-              <img src={props.loc} className="mx-auto"></img>
+              <img
+                src={props.loc}
+                className="mx-auto"
+                alt="No Background Retry Later"
+              ></img>
             )}
           </div>
         );

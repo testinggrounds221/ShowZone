@@ -6,8 +6,8 @@ function Rating(props) {
   let content = null;
   let full = Math.floor(props.val / 2);
   let iter = (arr) =>
-    arr.map((el) => (
-      <span>
+    arr.map((el,i) => (
+      <span key={i}>
         <FontAwesomeIcon icon={el.name} color={el.color} size={el.size} />
       </span>
     ));
@@ -28,7 +28,7 @@ function Rating(props) {
   }
   let j = 0;
   for (j = 0; j < 5; j++) {
-    if (j === 0 || j === 4) str[j].size = "x";
+    if (j === 0 || j === 4);
     else if (j === 1 || j === 3) str[j].size = "2x";
     else str[j].size = "3x";
   }

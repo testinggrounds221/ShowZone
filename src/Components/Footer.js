@@ -14,7 +14,7 @@ function Footer() {
   // <Button name="Back" clk={() => history.goBack()} />
   // <div >&copy; Copyright 2020</div>
   return (
-    <div class="bg-gray-400">
+    <div>
       <div className=" w-full bg-black-t-50 rounded-md fixed bottom-0 z-30">
         <div className="w-full mx-auto flex justify-between">
           <div onClick={() => history.goBack()} className="cursor-pointer mx-5">

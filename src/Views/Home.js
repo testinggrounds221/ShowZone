@@ -1,10 +1,8 @@
 import React from "react";
-import LoginControl from "./SrchPg";
-import { Link, useHistory, withRouter } from "react-router-dom";
+
+import { withRouter } from "react-router-dom";
 import Button from "../Components/Button";
 import GalleryCard from "../Components/GalleryCard";
-import ShowSearchResults from "../Components/ShowSearchResults";
-import SearchPage from "./SearchPage";
 // className="w-1/4 h-10 bg-pl-4 mt-8 flex justify-evenly mx-auto rounded-md outline-none" Button
 class Home extends React.Component {
   // let his = useHistory()
