@@ -1,59 +1,129 @@
-import React from 'react';
+import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGithub,faInstagram,faDribbble,faReact,faYarn,faCss3 } from "@fortawesome/free-brands-svg-icons";
+import {
+  faGithub,
+  faInstagram,
+  faDribbble,
+  faReact,
+  faYarn,
+  faCss3,
+  faFontAwesome,
+} from "@fortawesome/free-brands-svg-icons";
 
-function About(){
-	return(
-		<div className="bg-indigo-200 font-serif">
-		<h1 className = "text-2xl mb-3 font-bond text-center">Movie_APP</h1>
-		<p className="text-center">
-		Hey There. This page was created by Shreeram.				
-		</p>
-		<p className="text-center">
-		You can catch me on
-		</p>
-		<div className="justify-center flex">
-		<div className="inline m-1">
-		<FontAwesomeIcon
-		icon={faGithub}
-		size='3x'
-		/>
-		</div>
+function About() {
+  return (
+    <div>
+      <div
+        style={{
+          backgroundImage:
+            "url(https://raw.githubusercontent.com/testinggrounds221/ShowZone/master/i/chalkboard.jpg)",
+        }}
+        className="font-serif h-screen w-full"
+      >
+        <h1 className="text-2xl mb-1 font-bond text-center justify-center tMain">
+          ShowZone
+        </h1>
+        <h2 className="tMain text-center">About The App</h2>
+        <div className="text-white text-center px-3 text-lg tracking-wider space-y-6 my-3">
+          <p className="">This Page was put together using</p>
+          <div className="flex justify-between m-3">
+            <div className="justify-center">
+              <FontAwesomeIcon icon={faReact} size="3x" color={"lightblue"} />
+            </div>
+            <div className="justify-center">
+              <FontAwesomeIcon icon={faYarn} size="3x" color={"white"} />
+            </div>
+            <div className="justify-center">
+              <FontAwesomeIcon icon={faCss3} size="3x" color={"yellow"} />
+            </div>
+            <div className="justify-center">
+              <FontAwesomeIcon
+                icon={faFontAwesome}
+                size="3x"
+                color={"lightblue"}
+              />
+            </div>
+          </div>
+          <p className="">
+            Content is made available using CORS meachanism from{" "}
+            <a
+              className=" border-b  text-blue-200"
+              href="http://www.tvmaze.com/api"
+            >
+              <a
+                className=" border-b  text-blue-200"
+                href="http://www.tvmaze.com/api"
+              >
+                TV Maze
+              </a>
+            </a>
+            . You can get it{" "}
+            <a
+              className=" border-b  text-blue-200"
+              href="http://www.tvmaze.com/api"
+            >
+              here.
+            </a>
+          </p>
+          <p className="">
+            This project was bootstrapped with{" "}
+            <a
+              className=" border-b  text-blue-200"
+              href="https://github.com/facebook/create-react-app"
+            >
+              Create React App.
+            </a>
+          </p>
 
-		<div className="inline m-1">
-		<FontAwesomeIcon
-		icon={faInstagram}
-		size='3x'
+          <p className="">
+            You Can Get the whole code for this site{" "}
+            <a
+              className=" border-b  text-blue-200"
+              href="https://github.com/testinggrounds221/ShowZone/tree/branch2"
+            >
+              here.
+            </a>
+          </p>
+        </div>
+      </div>
+      <div>
+        <h2 className="tMain text-center text-2xl">About The Developer</h2>
 
-		/>
-		</div>
-		<div className="inline m-1">
-		<FontAwesomeIcon
-		icon={faDribbble}
-		size='3x'
+        <img
+          src="https://raw.githubusercontent.com/testinggrounds221/ShowZone/master/i/myAvatar.png"
+          className="rounded-full mx-auto"
+          alt="Shot"
+        ></img>
+        <div className="text-white font-sans text-lg tracking-wide text-center mb-5 px-1">
+          <p>Hey there !!!</p>
+          <p>
+            This app was created by Shreeram. Shreeram is a noob web developer
+            and this is his first-ever <b>completed</b> project.{" "}
+            <p className="my-2">
+              In case you missed it, the guy above this section resembles him.
+            </p>
+            Shreeram loves inputs and feedbacks about his work and would be
+            highly motivated if he was offered some.
+          </p>
+        </div>
+        {/* Face Color : edbca1 */}
 
-		/>
-		</div>
-		<div className="block">
-		<p>This page was Created using </p> 
-		<p><FontAwesomeIcon
-		icon={faReact}
-		size='3x'
+        <p className="tCon text-center my-5">You can catch him on</p>
+        <div className="justify-center flex">
+          <div className="inline m-1">
+            <FontAwesomeIcon icon={faGithub} size="3x" color={"white"} />
+          </div>
 
-		/></p><p><FontAwesomeIcon
-		icon={faYarn}
-		size='3x'
-
-		/></p> 
-		<p><FontAwesomeIcon
-		icon={faCss3}
-		size='3x'
-
-		/></p>
-		</div>
-		</div>
-		</div>
-		)
+          <div className="inline m-1">
+            <FontAwesomeIcon icon={faInstagram} size="3x" color={"white"} />
+          </div>
+          <div className="inline m-1">
+            <FontAwesomeIcon icon={faDribbble} size="3x" color={"white"} />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 }
 
-export default About
+export default About;

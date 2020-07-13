@@ -4,14 +4,13 @@ import { Link } from "react-router-dom";
 
 function Header() {
   return (
-    <header className="border-b p-4/5 flex items-center bg-pl-1 sticky top-0">
-      <div className="mx-2 mr-3">
+    <header className="border-b p-4/5 items-center bg-pl-1 top-0 sticky z-10">
+      {/* <div className="mx-2 mr-3">
         <Navigation />
-      </div>
-
-      <span className="tMain text-center tracking-wide">
-        <Link to="/">ShowZone</Link>
-      </span>
+      </div> */}
+      <Link to="/about">
+        <p className="tMain text-center tracking-wide mx-auto m-1">ShowZone</p>
+      </Link>
     </header>
   );
 }

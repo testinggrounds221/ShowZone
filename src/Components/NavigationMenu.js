@@ -10,8 +10,8 @@ import {
 
 function NavigationMenu(props) {
   return (
-    <div className="bg-gray-700">
-      <div className="font-bold py-3 px-3 bg-gray-700">ShowZone</div>
+    <div className="absolute w-4/5 h-full bg-white z-50">
+      <div className="font-bold py-3 px-3 bg-white">ShowZone</div>
       <ul>
         <li>
           <Link

@@ -9,7 +9,7 @@ function SearchPage(props) {
   content = (
     <div className="">
       <div>
-        <div className="tMain text-center text-xl sticky top-0 z-10 bg-black-t-15 mx-auto">
+        <div className="tMain text-center text-xl sticky top-0 z-20 bg-black mx-auto">
           Shows Matching "{val}"
         </div>
         <ShowSearchResults val={val} by="shows" />
@@ -17,7 +17,7 @@ function SearchPage(props) {
       
 
       <div>
-        <div className="tMain text-center text-xl sticky top-0 z-10 bg-black-t-15 mx-auto">
+      <div className="tMain text-center text-xl sticky top-0 z-20 bg-black mx-auto">
           People Matching "{val}"
         </div>
         <ShowSearchResults val={val} by="people" />

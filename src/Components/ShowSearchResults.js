@@ -21,7 +21,7 @@ function ShowSearchResults(props) {
 
   if (req.data && by === "shows") {
     content = req.data.map((show) => (
-      <div key={show.id} className="mx-auto shadow-xl w-7/12 my-10">
+      <div key={show.id} className="mx-auto shadow-xl w-10/12 my-10">
         
           <Card
             name={show.show.name}
@@ -34,7 +34,7 @@ function ShowSearchResults(props) {
   }
   if (req.data && by === "people") {
     content = req.data.map((p) => (
-      <div key={p.person.id} className="mx-auto shadow-xl w-7/12 my-10">
+      <div key={p.person.id} className="mx-auto shadow-xl w-10/12 my-10">
         <Card
           name={p.person.name}
           link={`/person/${p.person.id}`}
