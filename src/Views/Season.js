@@ -82,6 +82,8 @@ function Season() {
 
     content = (
       <div>
+      <div>
+      
         {ses.image && <img src={ses.image.medium} className="mx-auto"></img>}
         {!ses.image && (
           <img
@@ -89,7 +91,8 @@ function Season() {
             className="mx-auto w-2/3"
           ></img>
         )}
-
+      
+        </div>
         <div className="absolute bg-black-t-50 mx-auto inset-x-0 w-11/12 -my-10 rounded-md pb-3">
           <p className="text-center">
             <span className="tMain text-pl-1 font-semibold text-3xl">

@@ -26,22 +26,30 @@ function About() {
         <h2 className="tMain text-center">About The App</h2>
         <div className="text-white text-center px-3 text-lg tracking-wider space-y-6 my-3">
           <p className="">This Page was put together using</p>
-          <div className="flex justify-between m-3">
+          <div className="flex justify-between my-3 mx-auto w-3/4">
             <div className="justify-center">
-              <FontAwesomeIcon icon={faReact} size="3x" color={"lightblue"} />
+            <a href="https://reactjs.org/">
+              <FontAwesomeIcon icon={faReact} size="3x" color={"lightblue"}/>
+             </a>
             </div>
             <div className="justify-center">
+             <a href="https://classic.yarnpkg.com/en/"> 
               <FontAwesomeIcon icon={faYarn} size="3x" color={"white"} />
+             </a> 
             </div>
             <div className="justify-center">
+            <a href="https://tailwindcss.com/"> 
               <FontAwesomeIcon icon={faCss3} size="3x" color={"yellow"} />
+            </a>  
             </div>
             <div className="justify-center">
+            <a href="https://fontawesome.com/"> 
               <FontAwesomeIcon
                 icon={faFontAwesome}
                 size="3x"
                 color={"lightblue"}
               />
+              </a>
             </div>
           </div>
           <p className="">
@@ -109,16 +117,22 @@ function About() {
         {/* Face Color : edbca1 */}
 
         <p className="tCon text-center my-5">You can catch him on</p>
-        <div className="justify-center flex">
-          <div className="inline m-1">
+        <div className="justify-between flex mx-auto w-3/4">
+          <div className=" m-1 inline ">
+          <a href="https://github.com/testinggrounds221"> 
             <FontAwesomeIcon icon={faGithub} size="3x" color={"white"} />
+           </a> 
           </div>
 
           <div className="inline m-1">
-            <FontAwesomeIcon icon={faInstagram} size="3x" color={"white"} />
+          <a href="https://www.instagram.com/testinggrounds221/"> 
+            <FontAwesomeIcon icon={faInstagram} size="3x" color={"405DE6"} />
+            </a>
           </div>
           <div className="inline m-1">
-            <FontAwesomeIcon icon={faDribbble} size="3x" color={"white"} />
+          <a href="https://dribbble.com/testinggrounds"> 
+            <FontAwesomeIcon icon={faDribbble} size="3x" color={"#ea4c89"} />
+           </a> 
           </div>
         </div>
       </div>

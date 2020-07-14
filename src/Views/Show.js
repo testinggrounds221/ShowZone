@@ -43,8 +43,11 @@ function Show() {
     } catch {
       lc = "noImg";
     }
-    let bg = <GalleryCard id={id} for="shwBack" loc={lc} />;
-
+    let bg = 
+  
+    <GalleryCard id={id} for="shwBack" loc={lc} />;
+    
+  //   style={{'whiteSpace': 'nowrap'}}
     castCards = (
       <ThemeProvider theme={theme}>
         <Accordion>
@@ -53,8 +56,8 @@ function Show() {
           </AccordionSummary>
           {show._embedded.cast.map((elem) => (
             <AccordionDetails key={elem.person.id}>
-            <div className="mx-auto shadow-xl w-10/12 my-10">
-              <div key={elem.person.id} className="text-center text-xl sticky top-0 z-20 bg-black mx-auto">
+            <div className=" shadow-xl my-10">
+              <div key={elem.person.id} className="text-center text-xl sticky top-0 z-20 mx-auto">
                 <Card
                   name={`${elem.person.name} 
                   as

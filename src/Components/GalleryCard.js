@@ -73,7 +73,7 @@ function GalleryCard(props) {
 
     if (props.for === "hmBann") {
       let bann = req.data.filter((img) => {
-        return img.type === "banner" || img.type === "background";
+        return img.type === "poster" || img.type === "background"|| img.type === "banner";
       });
 
       if (bann.length === 0) {
@@ -87,6 +87,11 @@ function GalleryCard(props) {
               <img
                 className="content-center h-auto w-full rounded-md"
                 src={bann[0].resolutions.original.url}
+                alt="Hey"
+              ></img>
+              <img
+                className="content-center h-auto w-full rounded-md"
+                src={bann[1].resolutions.original.url}
                 alt="Hey"
               ></img>
             </div>
